@@ -374,7 +374,7 @@ MonoBehaviour:
       m_Action: Movement
       m_Flags: 8
     m_Flags: 0
-  speedFactor: 0
+  speedFactor: 0.01
 --- !u!58 &1312038957
 CircleCollider2D:
   m_ObjectHideFlags: 0
