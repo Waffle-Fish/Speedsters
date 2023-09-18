@@ -393,7 +393,7 @@ MonoBehaviour:
       m_Flags: 0
     m_Flags: 0
   speedFactor: 0.01
-  jumpFactor: 0
+  jumpFactor: 5
 --- !u!212 &932730081
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -638,7 +638,7 @@ MonoBehaviour:
       m_Flags: 0
     m_Flags: 0
   speedFactor: 0.01
-  jumpFactor: 0
+  jumpFactor: 5
 --- !u!58 &1312038957
 CircleCollider2D:
   m_ObjectHideFlags: 0
