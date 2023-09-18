@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void OnEnable()
@@ -38,9 +38,9 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x + movement.ReadValue<float>() * speedFactor, transform.position.y);
         }
-        if (jump != null)
+        if (jump.WasPressedThisFrame())
         {
-            rb.AddForce(new Vector2(0, jumpFactor), ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(0, jump.ReadValue<float>() * jumpFactor), ForceMode2D.Impulse);
         }
     }
 }
