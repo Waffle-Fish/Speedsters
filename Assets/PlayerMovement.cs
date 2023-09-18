@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] InputAction jump;
     [SerializeField][Range(0,0.5f)] float speedFactor;
     [SerializeField][Min(0)] float jumpFactor;
-    Rigidbody rb;
+    Rigidbody2D rb;
 
 
 
@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (jump != null)
         {
-            rb.AddForce(new Vector3(0, jumpFactor, 0), ForceMode.Impulse);
+            rb.AddForce(new Vector2(0, jumpFactor), ForceMode2D.Impulse);
         }
     }
 }
