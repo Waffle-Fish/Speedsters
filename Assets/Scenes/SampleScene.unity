@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 1425401499}
   m_Layer: 0
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -422,7 +422,7 @@ GameObject:
   - component: {fileID: 1927232160}
   m_Layer: 0
   m_Name: Square (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -628,6 +628,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player2
       objectReference: {fileID: 0}
+    - target: {fileID: 2406077558296948706, guid: cd1df1a9fdceab8439ab60b33f8c06b5, type: 3}
+      propertyPath: m_TagString
+      value: Player2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3863772470447748538, guid: cd1df1a9fdceab8439ab60b33f8c06b5, type: 3}
+      propertyPath: crouch.m_Id
+      value: 26dc2567-7b58-4e65-a44b-da033bc205f0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3863772470447748538, guid: cd1df1a9fdceab8439ab60b33f8c06b5, type: 3}
+      propertyPath: speedFactor
+      value: 0.109
+      objectReference: {fileID: 0}
+    - target: {fileID: 3863772470447748538, guid: cd1df1a9fdceab8439ab60b33f8c06b5, type: 3}
+      propertyPath: crouch.m_Name
+      value: Crouch
+      objectReference: {fileID: 0}
+    - target: {fileID: 3863772470447748538, guid: cd1df1a9fdceab8439ab60b33f8c06b5, type: 3}
+      propertyPath: fastFall.m_Id
+      value: c6371b37-e4fb-45a8-8896-d54bf3510a8f
+      objectReference: {fileID: 0}
+    - target: {fileID: 3863772470447748538, guid: cd1df1a9fdceab8439ab60b33f8c06b5, type: 3}
+      propertyPath: fastFall.m_Name
+      value: Fast Fall
+      objectReference: {fileID: 0}
+    - target: {fileID: 3863772470447748538, guid: cd1df1a9fdceab8439ab60b33f8c06b5, type: 3}
+      propertyPath: doublejumpFactor
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -641,8 +669,36 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2180007191537922931, guid: f372ab18ad2cc8848818da260800a7c1, type: 3}
+      propertyPath: crouch.m_Id
+      value: b284251f-02c0-44bc-81a6-155178d78e82
+      objectReference: {fileID: 0}
+    - target: {fileID: 2180007191537922931, guid: f372ab18ad2cc8848818da260800a7c1, type: 3}
+      propertyPath: speedFactor
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2180007191537922931, guid: f372ab18ad2cc8848818da260800a7c1, type: 3}
+      propertyPath: crouch.m_Name
+      value: Crouch
+      objectReference: {fileID: 0}
+    - target: {fileID: 2180007191537922931, guid: f372ab18ad2cc8848818da260800a7c1, type: 3}
+      propertyPath: fastFall.m_Id
+      value: 52cbc3ce-b1c3-4381-abcf-21d037e98036
+      objectReference: {fileID: 0}
+    - target: {fileID: 2180007191537922931, guid: f372ab18ad2cc8848818da260800a7c1, type: 3}
+      propertyPath: fastFall.m_Name
+      value: Fast Fall
+      objectReference: {fileID: 0}
+    - target: {fileID: 2180007191537922931, guid: f372ab18ad2cc8848818da260800a7c1, type: 3}
+      propertyPath: doublejumpFactor
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2358722263303137472, guid: f372ab18ad2cc8848818da260800a7c1, type: 3}
       propertyPath: m_Name
+      value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2358722263303137472, guid: f372ab18ad2cc8848818da260800a7c1, type: 3}
+      propertyPath: m_TagString
       value: Player1
       objectReference: {fileID: 0}
     - target: {fileID: 2871791218540232346, guid: f372ab18ad2cc8848818da260800a7c1, type: 3}
