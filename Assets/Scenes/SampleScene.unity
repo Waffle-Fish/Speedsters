@@ -375,7 +375,25 @@ MonoBehaviour:
       m_Action: Movement
       m_Flags: 8
     m_Flags: 0
+  jump:
+    m_Name: Jump
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 6646537a-3d0e-472f-b327-c6797876fbad
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 57616ddd-2277-44a8-8c6c-22f48122bc0b
+      m_Path: <Keyboard>/upArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Jump
+      m_Flags: 0
+    m_Flags: 0
   speedFactor: 0.01
+  jumpFactor: 0
 --- !u!212 &932730081
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -602,7 +620,25 @@ MonoBehaviour:
       m_Action: Movement
       m_Flags: 8
     m_Flags: 0
+  jump:
+    m_Name: Jump
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: fc74f612-0927-4fee-84d1-a1cfa355c3c8
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 242cc1f4-4449-4ed2-917e-d3f0a2a0acb2
+      m_Path: <Keyboard>/w
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Jump
+      m_Flags: 0
+    m_Flags: 0
   speedFactor: 0.01
+  jumpFactor: 0
 --- !u!58 &1312038957
 CircleCollider2D:
   m_ObjectHideFlags: 0
