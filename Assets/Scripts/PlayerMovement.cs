@@ -63,13 +63,12 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
-        //crouching button check
+//crouching button check
         if (crouch.WasPressedThisFrame() && isOnGround)
         {
             //crouching code
         }
-
-        //Fast fall button check
+//Fast fall button check
         if (crouch.WasPressedThisFrame() && !isOnGround && canFastFall) // fastfall should be possible once per leaving ground not "WasPressedThisFrame()" 
         {
             //fast falling code
