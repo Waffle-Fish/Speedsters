@@ -21,7 +21,8 @@ public class itemTrigger : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player1") || other.gameObject.CompareTag("Player2"))
         {
-            Destroy(gameObject);
+           Destroy(gameObject);
+           
                                  // <--- maybe an effect when the item is collected so it dont just vanish 
                                  // <--- function call to activate item here
         }
