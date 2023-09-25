@@ -7,31 +7,45 @@ public class freezeItem : MonoBehaviour
 
     public bool playerOneIsFrozen = false;
     public bool playerTwoIsFrozen = false;
-    public float freezeDuration = 2.0f;
-    Rigidbody2D rb1;
-    Rigidbody2D rb2;
+    
+    public Rigidbody2D rb1;
+    public Rigidbody2D rb2;
+
     float _playerOnePendingFreezeDuration = 0f;
     float _playerTwoPendingFreezeDuration = 0f;
 
-    void Start()
-    {
-        rb1 = GetComponent<Rigidbody2D>();
-        rb2 = GetComponent<Rigidbody2D>();
-    }
+    public float freezeDuration = 2.0f;
 
-    private void Update()
-    {
-        //if (_pendingFreezeDuration != 0f && !playerIsFrozen)
-        //{
+    public GameObject itemObj;
 
-        //}
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("triggered");
+        if (other.gameObject.CompareTag("Player1") )
+        {
+
+            itemObj.SetActive(false);
+            Debug.Log("calling function");
+            ItemEffect(2);                // this function call isn't working
+            Debug.Log("function passed");
+            // Destroy(gameObject);
+
+
+        }
+        if (other.gameObject.CompareTag("Player2"))
+        {
+            //disable visual of object
+            ItemEffect(1);              // this function call isn't working
+            Destroy(gameObject);
+        }
     }
 
     IEnumerator ItemEffect(int playerEffected)
     {
-
+        Debug.Log("item effect");
         if (playerEffected == 1)
         {
+            Debug.Log("player 1 effected");
             _playerOnePendingFreezeDuration = freezeDuration;
             rb1.constraints = RigidbodyConstraints2D.FreezePosition;
             playerOneIsFrozen = true;
@@ -47,6 +61,8 @@ public class freezeItem : MonoBehaviour
 
         if (playerEffected == 2)
         {
+            Debug.Log("player 2 effected");
+
             _playerTwoPendingFreezeDuration = freezeDuration;
             rb2.constraints = RigidbodyConstraints2D.FreezePosition;
             playerTwoIsFrozen = true;

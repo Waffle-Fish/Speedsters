@@ -317,9 +317,37 @@ Transform:
   m_Father: {fileID: 381352034}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &701538819 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2091540502266173131, guid: 9b438ac3df3784157bbfeaab284d3d70, type: 3}
+  m_PrefabInstance: {fileID: 1370476057}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &701538826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 701538819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ef2f4728663d44ffbc282a1c8aae544, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerOneIsFrozen: 0
+  playerTwoIsFrozen: 0
+  rb1: {fileID: 2090618770}
+  rb2: {fileID: 820487918}
+  freezeDuration: 2
+  itemObj: {fileID: 701538819}
 --- !u!4 &820487916 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1243427104372186454, guid: cd1df1a9fdceab8439ab60b33f8c06b5, type: 3}
+  m_PrefabInstance: {fileID: 1627740279832477104}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &820487918 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 6031559503087120584, guid: cd1df1a9fdceab8439ab60b33f8c06b5, type: 3}
   m_PrefabInstance: {fileID: 1627740279832477104}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1291642762 stripped
@@ -353,7 +381,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1001 &1370476057
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -406,14 +434,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 409607403135234788, guid: 9b438ac3df3784157bbfeaab284d3d70, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2091540502266173131, guid: 9b438ac3df3784157bbfeaab284d3d70, type: 3}
       propertyPath: m_Name
-      value: ItemTemplate (1)
+      value: Freeze Item
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 2091540502266173131, guid: 9b438ac3df3784157bbfeaab284d3d70, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7930354482303510225, guid: 9b438ac3df3784157bbfeaab284d3d70, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2091540502266173131, guid: 9b438ac3df3784157bbfeaab284d3d70, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 701538826}
   m_SourcePrefab: {fileID: 100100000, guid: 9b438ac3df3784157bbfeaab284d3d70, type: 3}
 --- !u!1 &1425401498
 GameObject:
@@ -798,6 +838,11 @@ Transform:
   m_Father: {fileID: 2093530325}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &2090618770 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 801524398096248930, guid: f372ab18ad2cc8848818da260800a7c1, type: 3}
+  m_PrefabInstance: {fileID: 7170234573285622167}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2093530324
 GameObject:
   m_ObjectHideFlags: 0
@@ -931,6 +976,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 801524398096248930, guid: f372ab18ad2cc8848818da260800a7c1, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2180007191537922931, guid: f372ab18ad2cc8848818da260800a7c1, type: 3}
       propertyPath: crouch.m_Id
       value: b284251f-02c0-44bc-81a6-155178d78e82

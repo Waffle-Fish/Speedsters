@@ -4,27 +4,23 @@ using UnityEngine;
 
 public class itemTrigger : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    //this is a template / test script for activating items its not ment to be used.
+    //If you are making an item, coppy and paste this code into a new script and replace this script in the
+    //actual final product
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public GameObject itemObj;
 
     // calls when player colision box touches item colision box
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player1") || other.gameObject.CompareTag("Player2"))
         {
-           Destroy(gameObject);
-           
-                                 // <--- maybe an effect when the item is collected so it dont just vanish 
-                                 // <--- function call to activate item here
+            itemObj.SetActive(false);
+
+
+                                     // <--- maybe an effect when the item is collected so it dont just vanish 
+                                     // <--- function call to activate item here
+            Destroy(gameObject);
         }
     }
 }
