@@ -4,6 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - SpawnPoint
+  - InstaObst
+  - RandomDmg
   - Player1
   - Player2
   - Ground
