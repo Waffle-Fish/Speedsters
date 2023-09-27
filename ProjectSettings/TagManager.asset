@@ -7,10 +7,6 @@ TagManager:
   - SpawnPoint
   - InstaObst
   - RandomDmg
-  - Player1
-  - Player2
-  - Ground
-  - Item
   layers:
   - Default
   - TransparentFX

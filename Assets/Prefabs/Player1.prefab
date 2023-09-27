@@ -150,31 +150,8 @@ MonoBehaviour:
       m_Action: Jump
       m_Flags: 0
     m_Flags: 0
-  crouch:
-    m_Name: Crouch
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 08bfb973-0525-4c07-b330-75166356634c
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
-  fastFall:
-    m_Name: Fast Fall
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: d73ff4d8-4b7a-46fd-9fbb-3abcb9401aa5
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
   speedFactor: 0.01
   jumpFactor: 5
-  doublejumpFactor: 0
-  fastFallFactor: 0
-  isOnGround: 0
-  canDoubleJump: 0
-  canFastFall: 0
 --- !u!50 &801524398096248930
 Rigidbody2D:
   serializedVersion: 4
