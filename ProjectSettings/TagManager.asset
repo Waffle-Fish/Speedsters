@@ -5,7 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - SpawnPoint
-  - Obstacle
+  - InstaObst
+  - RandomDmg
   layers:
   - Default
   - TransparentFX
