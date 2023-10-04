@@ -1544,7 +1544,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1878530130626195355, guid: e82901ed285237349805950c43e665d7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.8654785
+      value: 9.57
       objectReference: {fileID: 0}
     - target: {fileID: 1878530130626195355, guid: e82901ed285237349805950c43e665d7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2014,7 +2014,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2180007191537922931, guid: f372ab18ad2cc8848818da260800a7c1, type: 3}
       propertyPath: speedFactor
-      value: 0.01
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 2180007191537922931, guid: f372ab18ad2cc8848818da260800a7c1, type: 3}
       propertyPath: crouch.m_Name
