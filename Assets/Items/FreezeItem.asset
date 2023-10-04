@@ -13,4 +13,8 @@ MonoBehaviour:
   m_Name: FreezeItem
   m_EditorClassIdentifier: 
   itemName: FreezeItem
-  itemAppearance: {fileID: 0}
+  groundAppearance: {fileID: 0}
+  slotAppearance: {fileID: 0}
+  doesDmg: 0
+  dmgAmount: 0
+  spritesDuringItemUse: []
