@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // This is an example of an ItemCore child
-public class FreezeItem : ItemCore
+public class ExampleItem : ItemCore
 {
     public override void ActivateEffect()
     {

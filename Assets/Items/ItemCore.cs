@@ -8,7 +8,7 @@ public abstract class ItemCore : MonoBehaviour
     public Item item;
     public abstract void ActivateEffect();
 
-    protected SpriteRenderer spriteRenderer;
+    protected SpriteRenderer itemSpriteRenderer;
     protected Player1Master player1;
     protected Player2Master player2;
 
@@ -17,14 +17,18 @@ public abstract class ItemCore : MonoBehaviour
 
     private void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        itemSpriteRenderer = GetComponent<SpriteRenderer>();
         player1 = Player1Master.Instance;
         player2 = Player2Master.Instance;
+        // TODO: Display item
     }
 
     private void ProcessCollision()
     {
-        spriteRenderer.enabled = false;
+        itemSpriteRenderer.enabled = false;
+        // TODO:
+        //      IF slot full, auto use item in slot
+        //      Put item into item slot
     }
 
     private void OnTriggerEnter2D(Collider2D other)
