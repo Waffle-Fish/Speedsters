@@ -6,6 +6,7 @@ public class FreezeItem : ItemCore
 {
     public override void ActivateEffect()
     {
-        throw new System.NotImplementedException();
+        
     }
+
 }
