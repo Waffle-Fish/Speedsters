@@ -6,7 +6,7 @@ using UnityEngine.Rendering;
 public class PlayerController2 : MonoBehaviour
 {
     public float moveSpeed = 4f;
-    public float jumpForce = 10f;
+    public float jumpForce = 6f;
     public float fastFallSpeed = 6f;
     private bool isJumping = false;
     private bool isFastFalling = false;
@@ -42,6 +42,12 @@ public class PlayerController2 : MonoBehaviour
         {
             rb.AddForce(Vector2.up * (jumpForce), ForceMode2D.Impulse);
             isJumping = true;
+            jumps--;
+        }
+
+        if (Input.GetKeyDown(KeyCode.I) && (isJumping || jumps == 1))
+        {
+            rb.AddForce(Vector2.up * (jumpForce - 1), ForceMode2D.Impulse);
             jumps--;
         }
 
