@@ -1,13 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] InputAction moveInput;
+    [SerializeField] InputAction jump;
+    [SerializeField] InputAction fastFall;
+
     public float moveSpeed = 4f;
-    public float jumpForce = 10f;
+    public float jumpForce = 9f;
     public float fastFallSpeed = 6f;
+
     private bool isJumping = false;
     private bool isFastFalling = false;
     private int jumps = 2;
@@ -21,31 +27,29 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        float MI = moveInput.ReadValue<float>();
 
-        float moveInput = Input.GetAxis("Horizontal1");
+        rb.velocity = new Vector2(MI * moveSpeed, rb.velocity.y);
 
-        rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+        if (MI > 0 )
+        {
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
 
-        if (moveInput < 0)
+        if (MI < 0)
         {
             transform.localScale = new Vector3(1f, 1f, 1f);
         }
 
-        if (moveInput > 0)
+        if (jump.WasPressedThisFrame() && (!isJumping || jumps > 0))
         {
-            transform.localScale = new Vector3(1f, 1f, 1f);
-        }
-
-
-
-        if (Input.GetKeyDown(KeyCode.W) && (!isJumping || jumps > 0))
-        {
-            rb.AddForce(Vector2.up * (jumpForce - 1), ForceMode2D.Impulse);
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             isJumping = true;
             jumps--;
         }
 
-        if (Input.GetKeyDown(KeyCode.S))
+
+        if (fastFall.WasPressedThisFrame())
         {
             if (isJumping)
             {

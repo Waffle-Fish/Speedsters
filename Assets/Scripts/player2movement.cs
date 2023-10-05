@@ -33,17 +33,18 @@ public class PlayerController2 : MonoBehaviour
 
         if (moveInput > 0)
         {
-            transform.localScale = new Vector3(1f, 1f, 1f);
+            transform.localScale = new Vector3(-1f, 1f, 1f);
         }
 
 
 
         if (Input.GetKeyDown(KeyCode.I) && (!isJumping || jumps > 0))
         {
-            rb.AddForce(Vector2.up * (jumpForce - 1), ForceMode2D.Impulse);
+            rb.AddForce(Vector2.up * (jumpForce), ForceMode2D.Impulse);
             isJumping = true;
             jumps--;
         }
+
 
         if (Input.GetKeyDown(KeyCode.K))
         {

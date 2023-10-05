@@ -811,6 +811,65 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 790869c07b2e71f4abe939e9e3f12ee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveInput:
+    m_Name: Move Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 2e45ecdd-9ff8-492c-a115-d8dcce8dd3ac
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 88f6f638-519f-49c1-a10c-2ac439e952c5
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move Input
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 7d78f006-cc01-4847-b1f8-35573782b9b9
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move Input
+      m_Flags: 0
+    m_Flags: 0
+  jump:
+    m_Name: Jump
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 1f28b397-6509-43c1-8362-b2e59329dfda
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 6207409e-5478-492f-a07b-890102a7b68a
+      m_Path: <Keyboard>/w
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Jump
+      m_Flags: 0
+    m_Flags: 0
+  fastFall:
+    m_Name: Fast Fall
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 9522dcf5-59d9-4965-93ab-9ce25bc0d3e3
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: fc230f38-5ce0-4995-b785-8f569dc261bd
+      m_Path: <Keyboard>/s
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Fast Fall
+      m_Flags: 0
+    m_Flags: 0
   moveSpeed: 4
   jumpForce: 10
   fastFallSpeed: 6
