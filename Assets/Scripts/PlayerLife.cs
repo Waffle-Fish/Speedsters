@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class PlayerLife : MonoBehaviour
 {
-    private Vector3 respawnPoint;
-
     [SerializeField]
     int health = 100;
-   
+
+    private Vector3 respawnPoint;
+
     void Start()
     {
         /* Initially sets respawn point at position spawned */

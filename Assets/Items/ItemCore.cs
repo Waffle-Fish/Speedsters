@@ -7,17 +7,17 @@ public abstract class ItemCore : MonoBehaviour
     public Item item;
     public abstract void ActivateEffect();
 
-    protected SpriteRenderer sr;
-    protected 
+    protected SpriteRenderer spriteRenderer;
+    protected PlayerLife playerLife;
 
     private void Start()
     {
-        sr = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void ProcessCollision()
     {
-        sr.enabled = false;
+        spriteRenderer.enabled = false;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
