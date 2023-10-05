@@ -21,6 +21,18 @@ public class PlayerController1 : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    private void OnEnable()
+    {
+        moveInput.Enable();
+        jump.Enable();
+    }
+
+    private void OnDisable()
+    {
+        moveInput.Disable();
+        jump.Disable();
+    }
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
