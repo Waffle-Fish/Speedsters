@@ -8,7 +8,8 @@ public abstract class ItemCore : MonoBehaviour
     public abstract void ActivateEffect();
 
     protected SpriteRenderer spriteRenderer;
-    protected PlayerLife playerLife;
+    protected Player1Master player1;
+    protected Player2Master player2;
 
     private void Start()
     {
