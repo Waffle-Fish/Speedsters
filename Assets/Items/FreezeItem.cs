@@ -9,4 +9,8 @@ public class FreezeItem : ItemCore
         
     }
 
+    private void Freeze()
+    {
+        Debug.Log("Enemy is frozen!");
+    }
 }

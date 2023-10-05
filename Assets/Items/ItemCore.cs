@@ -8,6 +8,7 @@ public abstract class ItemCore : MonoBehaviour
     public abstract void ActivateEffect();
 
     protected SpriteRenderer sr;
+    protected 
 
     private void Start()
     {

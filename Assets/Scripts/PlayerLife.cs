@@ -16,12 +16,6 @@ public class PlayerLife : MonoBehaviour
         respawnPoint = transform.position;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         /* Any trigger object that is tagged "SpawnPoint" will update the respawn point
