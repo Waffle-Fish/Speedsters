@@ -10,6 +10,10 @@ public class ExampleItem : ItemCore
         Freeze();
     }
 
+    private void Update()
+    {
+        
+    }
     private void Freeze()
     {
         Debug.Log(user.name + " has frozen " + enemy.name + "!");

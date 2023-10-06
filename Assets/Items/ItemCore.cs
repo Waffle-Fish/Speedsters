@@ -6,9 +6,9 @@ using UnityEngine;
 public abstract class ItemCore : MonoBehaviour
 {
     public Item item;
-    [Tooltip("How long it takes before the effect activates. Can be used for big spells that have long animation times. Choose 0 if no delay")]
+    [Tooltip("In seconds, How long it takes before the effect activates. Choose 0 for no delay. Can be used for big spells that have long animation times. ")]
     public float effectDelay = 0f;
-    [Tooltip("How long the effect lasts. Choose 0 if no duration")]
+    [Tooltip("In seconds, How long the effect lasts. Choose 0 for no duration")]
     public float effectDuration = 0f;    
     public abstract void ActivateEffect();
 
@@ -19,7 +19,18 @@ public abstract class ItemCore : MonoBehaviour
     protected Camera userCamera;
     protected Camera enemyCamera;
 
-    protected float stopWatch;
+    protected bool effectIsActive = false;
+
+    #region StopWatch
+    private float stopWatchTime = 0f;
+    private bool stopWatchIsActive = false;
+
+    protected bool GetStopWatchIsActive { get { return stopWatchIsActive; } }
+    protected float GetStopWatchTime { get { return stopWatchTime; } }
+    protected void StopStopWatch() { stopWatchIsActive = false; }
+    protected void ResumeStopWatch() { stopWatchIsActive = true; }
+    protected void ResetStopWatch() { stopWatchTime = 0f; }
+    #endregion
 
     private void Start()
     {
@@ -28,8 +39,17 @@ public abstract class ItemCore : MonoBehaviour
         // TODO: Display item
     }
 
+    private void Update()
+    {
+        if (stopWatchIsActive)
+        {
+            stopWatchTime += Time.deltaTime;
+        }
+    }
+
     private void ProcessCollision()
     {
+        effectIsActive = true;
         itemSpriteRenderer.enabled = false;
 
         // TODO:

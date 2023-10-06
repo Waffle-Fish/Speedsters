@@ -5,13 +5,18 @@ using UnityEngine;
 public class EggRainEffect : ItemCore
 {
     [SerializeField]
-    private float timer;
+    Sprite cloud;
+    [SerializeField]
+    Sprite eggs;
+    [SerializeField]
+    List<Sprite> splatterdEgg;
+
     public override void ActivateEffect()
     {
 
     }
 
-    private void Start()
+    private void Update()
     {
 
     }
