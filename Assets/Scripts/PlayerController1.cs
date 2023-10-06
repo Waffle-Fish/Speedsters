@@ -9,33 +9,45 @@ public class PlayerController1 : MonoBehaviour
     [SerializeField] InputAction moveInput;
     [SerializeField] InputAction jump;
     [SerializeField] InputAction fastFall;
+    [SerializeField] InputAction crouch;
 
-    public float moveSpeed = 4f;
-    public float jumpForce = 6f;
-    public float fastFallSpeed = 6f;
+    public float moveSpeed = 5f;
+    public float jumpForce = 10f;
+    public float fastFallSpeed = 10f;
+    public float dJForce;
 
     public bool isJumping = false;
     public bool isFastFalling = false;
+    public bool isDoubleJumping = false;
+    public bool isCrouching = false;
     private int jumps = 2;
+
+    private BoxCollider2D characterCollider;
+    private Vector2 standingSize;
+    private Vector2 crouchingSize = new Vector2(1f, 0.5f);
 
 
     private Rigidbody2D rb;
 
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        characterCollider = GetComponent<BoxCollider2D>();
+    }
     private void OnEnable()
     {
         moveInput.Enable();
         jump.Enable();
+        fastFall.Enable();
+        crouch.Enable();
     }
 
     private void OnDisable()
     {
         moveInput.Disable();
         jump.Disable();
-    }
-
-    private void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
+        fastFall.Disable();
+        crouch.Enable();
     }
 
     private void Update()
@@ -54,36 +66,46 @@ public class PlayerController1 : MonoBehaviour
             transform.localScale = new Vector3(1f, 1f, 1f);
         }
 
+        dJForce = jumpForce - 1;
 
-        if (jump.WasPressedThisFrame())
+        if (jump.WasPressedThisFrame() && jumps > 0)
         {
-            Debug.Log("Jump pressed");
-            if (!isJumping || jumps > 0)
+            if (!isJumping)
             {
                 rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
                 isJumping = true;
                 jumps--;
             }
-
-            if (isJumping || jumps == 1)
+            else if (isJumping)
             {
-                rb.AddForce(Vector2.up * (jumpForce - 1), ForceMode2D.Impulse);
+                rb.AddForce(Vector2.up * dJForce, ForceMode2D.Impulse);
                 jumps--;
+                isDoubleJumping = true;
             }
         }
 
-        if (fastFall.WasPressedThisFrame())
+        float fastFallInput = fastFall.ReadValue<float>();
+
+        if (fastFallInput > 0 && isJumping)
         {
-            Debug.Log("Fastfall pressed");
-            if (isJumping)
-            {
-                rb.velocity = new Vector2(rb.velocity.x, -fastFallSpeed);
-                isFastFalling = true;
-            }
-            else
-            {
-                isFastFalling = false;
+           rb.velocity = new Vector2(rb.velocity.x,-fastFallSpeed);
+           isFastFalling = true;
         }
+        else if (!isJumping)
+        {
+            isFastFalling = false;
+        }
+
+        if (crouch.WasPressedThisFrame())
+        {
+            characterCollider.size = crouchingSize;
+            isCrouching = true;
+        }
+
+        if (crouch.WasReleasedThisFrame())
+        {
+            characterCollider.size = standingSize;
+            isCrouching = false;
         }
     }
 
@@ -93,6 +115,7 @@ public class PlayerController1 : MonoBehaviour
         {
             isJumping = false;
             isFastFalling = false;
+            isDoubleJumping = false; 
             jumps = 2;
         }
     }
