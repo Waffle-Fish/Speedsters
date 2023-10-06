@@ -10,7 +10,7 @@ public abstract class ItemCore : MonoBehaviour
     public float effectDelay = 0f;
     [Tooltip("In seconds, How long the effect lasts. Choose 0 for no duration")]
     public float effectDuration = 0f;    
-    public abstract void ActivateEffect();
+    public abstract IEnumerator ActivateEffect();
 
     protected SpriteRenderer itemSpriteRenderer;
     protected GameObject user;
@@ -22,14 +22,11 @@ public abstract class ItemCore : MonoBehaviour
     protected bool effectIsActive = false;
 
     #region StopWatch
-    private float stopWatchTime = 0f;
-    private bool stopWatchIsActive = false;
-
-    protected bool GetStopWatchIsActive { get { return stopWatchIsActive; } }
-    protected float GetStopWatchTime { get { return stopWatchTime; } }
-    protected void StopStopWatch() { stopWatchIsActive = false; }
-    protected void ResumeStopWatch() { stopWatchIsActive = true; }
-    protected void ResetStopWatch() { stopWatchTime = 0f; }
+    protected float timer = 0f;
+    protected bool timerIsActive = false;
+    protected void StopTimer() { timerIsActive = false; }
+    protected void StartTimer() { timerIsActive = true; }
+    protected void ResetTimer() { timer = 0f; }
     #endregion
 
     private void Start()
@@ -39,23 +36,21 @@ public abstract class ItemCore : MonoBehaviour
         // TODO: Display item
     }
 
-    private void Update()
-    {
-        if (stopWatchIsActive)
-        {
-            stopWatchTime += Time.deltaTime;
-        }
-    }
-
     private void ProcessCollision()
     {
-        effectIsActive = true;
         itemSpriteRenderer.enabled = false;
+        StartCoroutine(ActivateEffectCoroutine());
 
         // TODO:
         //      IF slot full, auto use item in slot
         //      Put item into item slot
         //      This will need to call UI
+    }
+
+    private IEnumerator ActivateEffectCoroutine()
+    {
+        yield return new WaitForSeconds(effectDelay);
+        StartCoroutine(ActivateEffect());
     }
 
     private void InitializeUserEnemy()
@@ -80,7 +75,6 @@ public abstract class ItemCore : MonoBehaviour
             }
             InitializeUserEnemy();
             ProcessCollision();
-            ActivateEffect();
             // Tell player that item is currently in use
         }
     }

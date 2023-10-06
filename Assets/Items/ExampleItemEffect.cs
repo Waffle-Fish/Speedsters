@@ -5,9 +5,10 @@ using UnityEngine;
 // This is an example of an ItemCore child
 public class ExampleItem : ItemCore
 {
-    public override void ActivateEffect()
+    public override IEnumerator ActivateEffect()
     {
         Freeze();
+        yield return null;
     }
 
     private void Update()

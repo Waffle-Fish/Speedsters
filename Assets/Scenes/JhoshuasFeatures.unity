@@ -759,6 +759,10 @@ MonoBehaviour:
   item: {fileID: 11400000, guid: eef0df5cdcf2eb54bb2eafb104eb725b, type: 2}
   effectDelay: 3
   effectDuration: 5
+  cloud: {fileID: 0}
+  eggs: {fileID: 0}
+  splatterdEgg: []
+  totalEggSpawn: 20
 --- !u!1 &1144810800
 GameObject:
   m_ObjectHideFlags: 0
