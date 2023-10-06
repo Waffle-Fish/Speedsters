@@ -21,18 +21,17 @@ public class EggRainEffect : ItemCore
     private void Start()
     {
         Instantiate(cloud, new Vector3(transform.position.x, transform.position.y + cloudHeight, transform.position.z), Quaternion.identity, this.transform);
-        for (int i = 0; i < totalEggSpawn; i++)
-        {
-            Instantiate(spawnList[i],cloud.transform.position,Quaternion.identity, this.transform);
-            spawnList[i].SetActive(false);
-        }
+        //for (int i = 0; i < totalEggSpawn; i++)
+        //{
+        //    Instantiate(spawnList[i],cloud.transform.position,Quaternion.identity, this.transform);
+        //    spawnList[i].SetActive(false);
+        //}
         cloud.transform.position = new Vector3(transform.position.x, transform.position.y + cloudHeight, transform.position.z);
         cloud.SetActive(false);
     }
 
     public override IEnumerator ActivateEffect()
     {
-
         StopTimer();
         ResetTimer();
         StartTimer();
@@ -44,6 +43,7 @@ public class EggRainEffect : ItemCore
             {
                 //Spawn egg
                 UnityEngine.Debug.Log("Egg " + eggCounter + " spawned - Time: " + timer);
+
                 eggCounter++;
             }
             timer += Time.deltaTime;
@@ -52,23 +52,20 @@ public class EggRainEffect : ItemCore
         UnityEngine.Debug.Log("All the eggs have finished being spawned");
         StopTimer();
         ResetTimer();
-        DeactivateEggs();
         effectIsActive = false;
     }
 
     private void SpawnCloud()
     {
         cloud.SetActive(true);
-        // Do all the cloud animations here. 
+        // Do all the cloud animations here (?) 
     }
-
-    private void DeactivateEggs()
+    private void OnDestroy()
     {
-        foreach(GameObject e in  spawnList)
-        {
-            e.transform.position = cloud.transform.position;
-            e.SetActive(false);
-        }
-        cloud.SetActive(false);
+        //Destroy(cloud);
+        //for (int i = 0; i < spawnList.Count; i++)
+        //{
+        //    Destroy(spawnList[i]);
+        //}
     }
 }

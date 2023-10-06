@@ -761,8 +761,9 @@ MonoBehaviour:
   effectDuration: 5
   cloud: {fileID: 6492957287743543348, guid: d50697803d48e914cb38b8a744d26c57, type: 3}
   eggs: {fileID: 5588333890775377436, guid: 7c34a65c87ba9b94489ac43b0fdda1a5, type: 3}
-  splatterdEgg: []
+  splatterdEgg: {fileID: 0}
   totalEggSpawn: 20
+  cloudHeight: 2
 --- !u!1 &1144810800
 GameObject:
   m_ObjectHideFlags: 0

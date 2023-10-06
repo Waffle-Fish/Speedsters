@@ -32,7 +32,8 @@ public abstract class ItemCore : MonoBehaviour
     private void Start()
     {
         itemSpriteRenderer = GetComponent<SpriteRenderer>();
-        
+        Debug.Log("itemSpriteRenderer: " + itemSpriteRenderer.name);
+
         // TODO: Display item
     }
 
