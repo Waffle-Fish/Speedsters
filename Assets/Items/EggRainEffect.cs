@@ -6,21 +6,38 @@ using UnityEngine;
 public class EggRainEffect : ItemCore
 {
     [SerializeField]
-    Sprite cloud;
+    GameObject cloud;
     [SerializeField]
-    Sprite eggs;
+    GameObject eggs;
     [SerializeField]
-    List<Sprite> splatterdEgg;
+    Sprite splatterdEgg;
     [SerializeField]
     [Tooltip("Amount of eggs that spawns within the effectDuration")]
-    int totalEggSpawn;
+    private int totalEggSpawn = 0;
+    [SerializeField]
+    private float cloudHeight = 0f;
+    private List<GameObject> spawnList;
+
+    private void Start()
+    {
+        Instantiate(cloud, new Vector3(transform.position.x, transform.position.y + cloudHeight, transform.position.z), Quaternion.identity, this.transform);
+        for (int i = 0; i < totalEggSpawn; i++)
+        {
+            Instantiate(spawnList[i],cloud.transform.position,Quaternion.identity, this.transform);
+            spawnList[i].SetActive(false);
+        }
+        cloud.transform.position = new Vector3(transform.position.x, transform.position.y + cloudHeight, transform.position.z);
+        cloud.SetActive(false);
+    }
 
     public override IEnumerator ActivateEffect()
     {
+
         StopTimer();
         ResetTimer();
         StartTimer();
         int eggCounter = 1;
+        SpawnCloud();
         while (timer <= effectDuration)
         {
             if(timer >= eggCounter * effectDuration / totalEggSpawn)
@@ -35,6 +52,23 @@ public class EggRainEffect : ItemCore
         UnityEngine.Debug.Log("All the eggs have finished being spawned");
         StopTimer();
         ResetTimer();
+        DeactivateEggs();
         effectIsActive = false;
+    }
+
+    private void SpawnCloud()
+    {
+        cloud.SetActive(true);
+        // Do all the cloud animations here. 
+    }
+
+    private void DeactivateEggs()
+    {
+        foreach(GameObject e in  spawnList)
+        {
+            e.transform.position = cloud.transform.position;
+            e.SetActive(false);
+        }
+        cloud.SetActive(false);
     }
 }

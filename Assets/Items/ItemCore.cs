@@ -9,7 +9,7 @@ public abstract class ItemCore : MonoBehaviour
     [Tooltip("In seconds, How long it takes before the effect activates. Choose 0 for no delay. Can be used for big spells that have long animation times. ")]
     public float effectDelay = 0f;
     [Tooltip("In seconds, How long the effect lasts. Choose 0 for no duration")]
-    public float effectDuration = 0f;    
+    public float effectDuration = 0f;
     public abstract IEnumerator ActivateEffect();
 
     protected SpriteRenderer itemSpriteRenderer;
