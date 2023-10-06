@@ -6,29 +6,42 @@ using UnityEngine;
 public abstract class ItemCore : MonoBehaviour
 {
     public Item item;
+    [Tooltip("How long it takes before the effect activates. Can be used for big spells that have long animation times. Choose 0 if no delay")]
+    public float effectDelay = 0f;
+    [Tooltip("How long the effect lasts. Choose 0 if no duration")]
+    public float effectDuration = 0f;    
     public abstract void ActivateEffect();
 
     protected SpriteRenderer itemSpriteRenderer;
-    protected Player1Master player1;
-    protected Player2Master player2;
-
     protected GameObject user;
     protected GameObject enemy;
+
+    protected Camera userCamera;
+    protected Camera enemyCamera;
+
+    protected float stopWatch;
 
     private void Start()
     {
         itemSpriteRenderer = GetComponent<SpriteRenderer>();
-        player1 = Player1Master.Instance;
-        player2 = Player2Master.Instance;
+        
         // TODO: Display item
     }
 
     private void ProcessCollision()
     {
         itemSpriteRenderer.enabled = false;
+
         // TODO:
         //      IF slot full, auto use item in slot
         //      Put item into item slot
+        //      This will need to call UI
+    }
+
+    private void InitializeUserEnemy()
+    {
+        userCamera = user.GetComponentInChildren<Camera>();
+        enemyCamera = enemy.GetComponentInChildren<Camera>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -45,8 +58,10 @@ public abstract class ItemCore : MonoBehaviour
                 user = Player2Master.Instance.gameObject;
                 enemy = Player1Master.Instance.gameObject;
             }
+            InitializeUserEnemy();
             ProcessCollision();
             ActivateEffect();
+            // Tell player that item is currently in use
         }
     }
 }
