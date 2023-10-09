@@ -7310,6 +7310,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1328665877}
     m_Modifications:
+    - target: {fileID: 801524398096248930, guid: f372ab18ad2cc8848818da260800a7c1, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2180007191537922931, guid: f372ab18ad2cc8848818da260800a7c1, type: 3}
       propertyPath: movement.m_SingletonActionBindings.Array.size
       value: 3

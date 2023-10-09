@@ -11,10 +11,6 @@ public class ExampleItem : ItemCore
         yield return null;
     }
 
-    private void Update()
-    {
-        
-    }
     private void Freeze()
     {
         Debug.Log(user.name + " has frozen " + enemy.name + "!");

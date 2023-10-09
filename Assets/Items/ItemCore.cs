@@ -21,7 +21,7 @@ public abstract class ItemCore : MonoBehaviour
 
     protected bool effectIsActive = false;
 
-    #region StopWatch
+    #region Timer
     protected float timer = 0f;
     protected bool timerIsActive = false;
     protected void StopTimer() { timerIsActive = false; }
