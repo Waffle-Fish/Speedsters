@@ -13,19 +13,22 @@ public class PlayerController1 : MonoBehaviour
 
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
+    public float fallJumpForce = 9f;
     public float fastFallSpeed = 10f;
-    public float dJForce;
+    public float dJForce = 9;
 
+    public bool onGround = true;
     public bool isJumping = false;
+    public bool fallJump = false;
     public bool isFastFalling = false;
     public bool isDoubleJumping = false;
     public bool isCrouching = false;
+    
     private int jumps = 2;
 
     private BoxCollider2D characterCollider;
     private Vector2 standingSize;
     private Vector2 crouchingSize = new Vector2(1f, 0.5f);
-
 
     private Rigidbody2D rb;
 
@@ -33,6 +36,7 @@ public class PlayerController1 : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         characterCollider = GetComponent<BoxCollider2D>();
+
     }
     private void OnEnable()
     {
@@ -55,6 +59,8 @@ public class PlayerController1 : MonoBehaviour
         float MI = moveInput.ReadValue<float>();
         Debug.Log("Move input value: " + MI);
 
+        float VI = rb.velocity.y;
+
         rb.velocity = new Vector2(MI * moveSpeed, rb.velocity.y);
 
         if (MI > 0)
@@ -66,21 +72,30 @@ public class PlayerController1 : MonoBehaviour
             transform.localScale = new Vector3(1f, 1f, 1f);
         }
 
-        dJForce = jumpForce - 1;
-
         if (jump.WasPressedThisFrame() && jumps > 0)
         {
             if (!isJumping)
             {
-                rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
                 isJumping = true;
+                onGround = false;
                 jumps--;
             }
+
+            else if (VI < 0)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, fallJumpForce);
+                isDoubleJumping = true;
+                fallJump = true;
+                jumps--;
+            }
+
             else if (isJumping)
             {
-                rb.AddForce(Vector2.up * dJForce, ForceMode2D.Impulse);
+                rb.velocity = new Vector2(rb.velocity.x, dJForce);
                 jumps--;
                 isDoubleJumping = true;
+                onGround = false;
             }
         }
 
@@ -111,9 +126,14 @@ public class PlayerController1 : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        {
+            
+        }
         if (collision.gameObject.CompareTag("Ground"))
         {
+            onGround = true;
             isJumping = false;
+            fallJump = false;
             isFastFalling = false;
             isDoubleJumping = false; 
             jumps = 2;

@@ -534,11 +534,15 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
-  moveSpeed: 4
-  jumpForce: 6
-  fastFallSpeed: 6
-  dJForce: 0
+  moveSpeed: 5
+  jumpForce: 10
+  airJumpForce: 9
+  fastFallSpeed: 10
+  dJForce: 9
+  airGravity: 0
+  onGround: 1
   isJumping: 0
+  airJump: 0
   isFastFalling: 0
   isDoubleJumping: 0
   isCrouching: 0
