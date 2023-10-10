@@ -13,9 +13,17 @@ public abstract class ItemCore : MonoBehaviour
     public abstract IEnumerator ActivateEffect();
 
     protected SpriteRenderer itemSpriteRenderer;
+
     protected GameObject user;
     protected GameObject enemy;
-
+    protected Transform userTransform;
+    protected Transform enemyTransform;
+    protected Rigidbody2D userRigidBody;
+    protected Rigidbody2D enemyRigidBody;
+    protected PlayerMovement userMovement;
+    protected PlayerMovement enemyMovement;
+    protected PlayerLife userLife;
+    protected PlayerLife enemyLife;
     protected Camera userCamera;
     protected Camera enemyCamera;
 
@@ -29,39 +37,19 @@ public abstract class ItemCore : MonoBehaviour
     protected void ResetTimer() { timer = 0f; }
     #endregion
 
+
+    // Don't GetComponent<>() in start as it doesn't actually grab that items component
     private void Start()
     {
-        itemSpriteRenderer = GetComponent<SpriteRenderer>();
-        Debug.Log("itemSpriteRenderer: " + itemSpriteRenderer.name);
+        
 
         // TODO: Display item
     }
 
-    private void ProcessCollision()
-    {
-        itemSpriteRenderer.enabled = false;
-        StartCoroutine(ActivateEffectCoroutine());
-
-        // TODO:
-        //      IF slot full, auto use item in slot
-        //      Put item into item slot
-        //      This will need to call UI
-    }
-
-    private IEnumerator ActivateEffectCoroutine()
-    {
-        yield return new WaitForSeconds(effectDelay);
-        StartCoroutine(ActivateEffect());
-    }
-
-    private void InitializeUserEnemy()
-    {
-        userCamera = user.GetComponentInChildren<Camera>();
-        enemyCamera = enemy.GetComponentInChildren<Camera>();
-    }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
+        itemSpriteRenderer = GetComponent<SpriteRenderer>();
+        itemSpriteRenderer.enabled = false;
         if (other.gameObject.CompareTag("Player1") || other.gameObject.CompareTag("Player2"))
         {
             if(other.gameObject.CompareTag("Player1"))
@@ -76,7 +64,36 @@ public abstract class ItemCore : MonoBehaviour
             }
             InitializeUserEnemy();
             ProcessCollision();
-            // Tell player that item is currently in use
         }
+    }
+    private void InitializeUserEnemy()
+    {
+        userCamera = user.GetComponentInChildren<Camera>();
+        enemyCamera = enemy.GetComponentInChildren<Camera>();
+        userTransform = user.GetComponent<Transform>();
+        enemyTransform = enemy.GetComponent<Transform>();
+        userRigidBody = user.GetComponent<Rigidbody2D>();
+        enemyRigidBody = enemy.GetComponent<Rigidbody2D>();
+        userMovement = user.GetComponent<PlayerMovement>();
+        enemyMovement = enemy.GetComponent<PlayerMovement>();
+        userLife = user.GetComponent<PlayerLife>();
+        enemyLife = user.GetComponent <PlayerLife>();
+}
+
+    private IEnumerator ActivateEffectCoroutine()
+    {
+        yield return new WaitForSeconds(effectDelay);
+        StartCoroutine(ActivateEffect());
+    }
+
+    private void ProcessCollision()
+    {
+        itemSpriteRenderer.enabled = false;
+        StartCoroutine(ActivateEffectCoroutine());
+
+        // TODO:
+        //      IF slot full, auto use item in slot
+        //      Put item into item slot
+        //      This will need to call UI
     }
 }
