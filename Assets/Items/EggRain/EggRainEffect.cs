@@ -5,6 +5,13 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+// TODO:
+// Have player detect being hit by egg
+// Create Splatter effect on sceen
+// Reduce player speed
+// Change layer ordering of egg to cloud
+// Change sprites
+
 public class EggRainEffect : ItemCore
 {
     [SerializeField]
@@ -85,12 +92,13 @@ public class EggRainEffect : ItemCore
         cloud.SetActive(true);
         UnityEngine.Debug.Log("Cloud has spawned");
     }
+
     private void OnDestroy()
     {
-        //Destroy(cloud);
-        //for (int i = 0; i < spawnList.Count; i++)
-        //{
-        //    Destroy(spawnList[i]);
-        //}
+        Destroy(cloud);
+        for (int i = 0; i < eggList.Count; i++)
+        {
+            Destroy(eggList[i]);
+        }
     }
 }
