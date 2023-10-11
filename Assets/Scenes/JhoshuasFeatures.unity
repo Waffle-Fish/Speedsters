@@ -3377,7 +3377,7 @@ MonoBehaviour:
   egg: {fileID: 5588333890775377436, guid: 7c34a65c87ba9b94489ac43b0fdda1a5, type: 3}
   splatterdEgg: {fileID: 0}
   totalEggSpawn: 20
-  cloudHeight: 2
+  cloudHeight: 5
   eggDropDuration: 1
 --- !u!1 &1144810800
 GameObject:
@@ -7311,7 +7311,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3863772470447748538, guid: cd1df1a9fdceab8439ab60b33f8c06b5, type: 3}
       propertyPath: speedFactor
-      value: 0.05
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 3863772470447748538, guid: cd1df1a9fdceab8439ab60b33f8c06b5, type: 3}
+      propertyPath: canDoubleJump
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3863772470447748538, guid: cd1df1a9fdceab8439ab60b33f8c06b5, type: 3}
       propertyPath: crouch.m_Name
@@ -7327,7 +7331,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3863772470447748538, guid: cd1df1a9fdceab8439ab60b33f8c06b5, type: 3}
       propertyPath: doublejumpFactor
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5175550227676427943, guid: cd1df1a9fdceab8439ab60b33f8c06b5, type: 3}
       propertyPath: m_SortingLayer

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class EggRainEffect : ItemCore
 {
@@ -23,7 +24,7 @@ public class EggRainEffect : ItemCore
 
     private void Start()
     {
-        cloud = Instantiate(cloud, new Vector3(transform.position.x, transform.position.y + cloudHeight, transform.position.z), Quaternion.identity, this.transform);
+        cloud = Instantiate(cloud, transform.position, cloud.transform.rotation, this.transform);
         for (int i = 0; i < totalEggSpawn; i++)
         {
             GameObject e = Instantiate(egg, cloud.transform.position, Quaternion.identity, transform);
@@ -31,7 +32,6 @@ public class EggRainEffect : ItemCore
             eggList.Add(e);
         }
         cloud.SetActive(false);
-
     }
 
     public override IEnumerator ActivateEffect()
@@ -59,17 +59,20 @@ public class EggRainEffect : ItemCore
         StopTimer();
         ResetTimer();
         effectIsActive = false;
+        cloud.SetActive(false);
     }
 
     private IEnumerator RainEgg(GameObject egg)
     {
         if (egg == null) { UnityEngine.Debug.LogError("No Egg to drop"); }
-        UnityEngine.Debug.Log("Egg transform: " + egg.transform.position);
-        while (egg.transform.position.y > userTransform.position.y)
+        egg.transform.position = new(enemyTransform.position.x, enemyTransform.position.y + cloudHeight, enemyTransform.position.z);
+        float spawnPosX = cloud.transform.position.x + UnityEngine.Random.Range(-1 * cloud.transform.localScale.x, cloud.transform.localScale.x);
+        while (egg.transform.position.y > enemyTransform.position.y)
         {
             float dropRate = (cloudHeight / eggDropDuration) * Time.deltaTime;
             UnityEngine.Debug.Log("DropRate: " + dropRate);
-            Vector2 eggPos = new Vector2(egg.transform.position.x,egg.transform.position.y - dropRate);
+            float spawnPosY = egg.transform.position.y - dropRate;
+            Vector2 eggPos = new Vector2(spawnPosX, spawnPosY);
             egg.transform.position = eggPos;
             yield return null;
         }
@@ -78,8 +81,9 @@ public class EggRainEffect : ItemCore
 
     private void SpawnCloud()
     {
+        cloud.transform.position = new(enemyTransform.position.x, enemyTransform.position.y + cloudHeight);
         cloud.SetActive(true);
-        // Do all the cloud animations here (?) 
+        UnityEngine.Debug.Log("Cloud has spawned");
     }
     private void OnDestroy()
     {
