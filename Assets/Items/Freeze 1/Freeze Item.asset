@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f73fce1633ac3c44aae8d4e90a6937c3, type: 3}
   m_Name: Freeze Item
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Freeze
   groundAppearance: {fileID: 0}
   slotAppearance: {fileID: 0}
   doesDmg: 0
