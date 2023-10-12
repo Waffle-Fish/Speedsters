@@ -26,6 +26,8 @@ public abstract class ItemCore : MonoBehaviour
     protected PlayerLife enemyLife;
     protected Camera userCamera;
     protected Camera enemyCamera;
+    protected SpriteRenderer userSpriteRenderer;
+    protected SpriteRenderer enemySpriteRenderer;
 
     protected bool effectIsActive = false;
 
@@ -78,7 +80,9 @@ public abstract class ItemCore : MonoBehaviour
         enemyMovement = enemy.GetComponent<PlayerMovement>();
         userLife = user.GetComponent<PlayerLife>();
         enemyLife = user.GetComponent <PlayerLife>();
-}
+        userSpriteRenderer = user.GetComponent<SpriteRenderer>();
+        enemySpriteRenderer = enemy.GetComponent<SpriteRenderer>();
+    }
 
     private IEnumerator ActivateEffectCoroutine()
     {
