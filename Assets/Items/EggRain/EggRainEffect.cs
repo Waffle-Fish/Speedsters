@@ -20,7 +20,7 @@ public class EggRainEffect : ItemCore
     [SerializeField]
     GameObject egg;
     [SerializeField]
-    Sprite splatterdEgg;
+    private List<Sprite> splatterdEgg;
     [SerializeField]
     [Tooltip("Amount of eggs that spawns within the effectDuration")]
     private int totalEggSpawn = 0;
@@ -103,6 +103,9 @@ public class EggRainEffect : ItemCore
     private void ProcessHit()
     {
         UnityEngine.Debug.Log("Egg " + eggCounter + " has hit player " + enemy.tag);
+        // Slow player
+
+        // Create egg splatters
     }
 
     private void ProcessEnd()
