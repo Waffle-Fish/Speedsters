@@ -380,8 +380,9 @@ GameObject:
   - component: {fileID: 320586711}
   - component: {fileID: 320586710}
   - component: {fileID: 320586709}
+  - component: {fileID: 320586712}
   m_Layer: 5
-  m_Name: BottomScreen
+  m_Name: BottomScreenUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -471,6 +472,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &320586712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 320586707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afbfb04a3813cc54aa7be193d3b8d4ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &381352034 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2871791218540232346, guid: f372ab18ad2cc8848818da260800a7c1, type: 3}
@@ -806,8 +819,9 @@ GameObject:
   - component: {fileID: 769744349}
   - component: {fileID: 769744348}
   - component: {fileID: 769744347}
+  - component: {fileID: 769744350}
   m_Layer: 5
-  m_Name: TopScreen
+  m_Name: TopScreenUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -897,6 +911,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &769744350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769744345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8acc4b8fc1adf54385dbf6c3cb45685, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &794850533
 GameObject:
   m_ObjectHideFlags: 0
