@@ -28,6 +28,8 @@ public abstract class ItemCore : MonoBehaviour
     protected Camera enemyCamera;
     protected SpriteRenderer userSpriteRenderer;
     protected SpriteRenderer enemySpriteRenderer;
+    protected GameObject userScreen;
+    protected GameObject enemyScreen;
 
     protected bool effectIsActive = false;
 
@@ -58,11 +60,15 @@ public abstract class ItemCore : MonoBehaviour
             {
                 user = Player1Master.Instance.gameObject;
                 enemy = Player2Master.Instance.gameObject;
+                userScreen = TopScreenUIManager.Instance.gameObject;
+                enemyScreen = BottomScreenUIManager.Instance.gameObject;
             }
             else
             {
                 user = Player2Master.Instance.gameObject;
                 enemy = Player1Master.Instance.gameObject;
+                userScreen = BottomScreenUIManager.Instance.gameObject;
+                enemyScreen = TopScreenUIManager.Instance.gameObject;
             }
             InitializeUserEnemy();
             ProcessCollision();
