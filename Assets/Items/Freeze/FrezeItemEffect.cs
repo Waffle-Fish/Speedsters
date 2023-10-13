@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class frrezeItemEffect : ItemCore
+public class FrezeItemEffect : ItemCore
 {
    public override IEnumerator ActivateEffect()
     {
