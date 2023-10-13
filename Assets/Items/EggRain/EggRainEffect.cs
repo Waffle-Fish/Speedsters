@@ -20,7 +20,7 @@ public class EggRainEffect : ItemCore
     [SerializeField]
     GameObject egg;
     [SerializeField]
-    private List<Sprite> splatterdEgg;
+    private List<Image> splatterdEgg;
     [SerializeField]
     [Tooltip("Amount of eggs that spawns within the effectDuration")]
     private int totalEggSpawn = 0;
