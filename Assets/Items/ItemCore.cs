@@ -41,12 +41,9 @@ public abstract class ItemCore : MonoBehaviour
     protected void ResetTimer() { timer = 0f; }
     #endregion
 
-
-    // Don't GetComponent<>() in start as it doesn't actually grab that items component
+    // Don't GetComponent<>() in start as it doesn't actually grab that itemCore child's component
     private void Start()
     {
-        
-
         // TODO: Display item
     }
 
@@ -90,20 +87,20 @@ public abstract class ItemCore : MonoBehaviour
         enemySpriteRenderer = enemy.GetComponent<SpriteRenderer>();
     }
 
-    private IEnumerator ActivateEffectCoroutine()
-    {
-        yield return new WaitForSeconds(effectDelay);
-        StartCoroutine(ActivateEffect());
-    }
-
     private void ProcessCollision()
     {
         itemSpriteRenderer.enabled = false;
-        StartCoroutine(ActivateEffectCoroutine());
+        StartCoroutine(DelayActivation());
 
         // TODO:
         //      IF slot full, auto use item in slot
         //      Put item into item slot
         //      This will need to call UI
+    }
+
+    private IEnumerator DelayActivation()
+    {
+        yield return new WaitForSeconds(effectDelay);
+        StartCoroutine(ActivateEffect());
     }
 }
