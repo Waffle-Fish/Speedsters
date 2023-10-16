@@ -20,8 +20,8 @@ public abstract class ItemCore : MonoBehaviour
     protected Transform enemyTransform;
     protected Rigidbody2D userRigidBody;
     protected Rigidbody2D enemyRigidBody;
-    protected PlayerMovement userMovement;
-    protected PlayerMovement enemyMovement;
+    protected PlayerController userMovement;
+    protected PlayerController enemyMovement;
     protected PlayerLife userLife;
     protected PlayerLife enemyLife;
     protected Camera userCamera;
@@ -79,8 +79,8 @@ public abstract class ItemCore : MonoBehaviour
         enemyTransform = enemy.GetComponent<Transform>();
         userRigidBody = user.GetComponent<Rigidbody2D>();
         enemyRigidBody = enemy.GetComponent<Rigidbody2D>();
-        userMovement = user.GetComponent<PlayerMovement>();
-        enemyMovement = enemy.GetComponent<PlayerMovement>();
+        userMovement = user.GetComponent<PlayerController>();
+        enemyMovement = enemy.GetComponent<PlayerController>();
         userLife = user.GetComponent<PlayerLife>();
         enemyLife = user.GetComponent <PlayerLife>();
         userSpriteRenderer = user.GetComponent<SpriteRenderer>();
