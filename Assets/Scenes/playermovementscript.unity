@@ -536,13 +536,12 @@ MonoBehaviour:
     m_Flags: 0
   moveSpeed: 5
   jumpForce: 10
-  airJumpForce: 9
+  fallJumpForce: 9
   fastFallSpeed: 10
   dJForce: 9
-  airGravity: 0
   onGround: 1
   isJumping: 0
-  airJump: 0
+  fallJump: 0
   isFastFalling: 0
   isDoubleJumping: 0
   isCrouching: 0
@@ -607,7 +606,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 3
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e750815a24e26a24b88ef6426c988b77, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

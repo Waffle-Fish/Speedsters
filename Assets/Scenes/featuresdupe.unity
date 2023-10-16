@@ -510,6 +510,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &655394680 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2406077558296948706, guid: cd1df1a9fdceab8439ab60b33f8c06b5, type: 3}
+  m_PrefabInstance: {fileID: 1627740279832477104}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &694660572
 GameObject:
   m_ObjectHideFlags: 0
@@ -618,6 +623,65 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1243427104372186454, guid: cd1df1a9fdceab8439ab60b33f8c06b5, type: 3}
   m_PrefabInstance: {fileID: 1627740279832477104}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &820487921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655394680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790869c07b2e71f4abe939e9e3f12ee9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveInput:
+    m_Name: Move Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 10cf2bac-3a97-428d-b0be-9254d95d22dd
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  jump:
+    m_Name: Jump
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: ad4851b4-457f-4029-b539-a4158fed1057
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  fastFall:
+    m_Name: Fast Fall
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 72641759-67c2-4ca6-b169-fe5da79d85d6
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  crouch:
+    m_Name: Crouch
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: dd723a31-cc4e-4333-bf49-2b6e75bb92db
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  moveSpeed: 5
+  jumpForce: 10
+  fallJumpForce: 9
+  fastFallSpeed: 10
+  dJForce: 9
+  onGround: 1
+  isJumping: 0
+  fallJump: 0
+  isFastFalling: 0
+  isDoubleJumping: 0
+  isCrouching: 0
 --- !u!1 &886174501
 GameObject:
   m_ObjectHideFlags: 0
@@ -3910,13 +3974,21 @@ PrefabInstance:
       propertyPath: doublejumpFactor
       value: 10
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6031559503087120584, guid: cd1df1a9fdceab8439ab60b33f8c06b5, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: e750815a24e26a24b88ef6426c988b77, type: 2}
+    m_RemovedComponents:
+    - {fileID: 3863772470447748538, guid: cd1df1a9fdceab8439ab60b33f8c06b5, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1243427104372186454, guid: cd1df1a9fdceab8439ab60b33f8c06b5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 421627573}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2406077558296948706, guid: cd1df1a9fdceab8439ab60b33f8c06b5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 820487921}
   m_SourcePrefab: {fileID: 100100000, guid: cd1df1a9fdceab8439ab60b33f8c06b5, type: 3}
 --- !u!1001 &7170234573285622167
 PrefabInstance:
