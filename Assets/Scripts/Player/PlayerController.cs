@@ -13,9 +13,9 @@ public class PlayerController : MonoBehaviour
 
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
+    public float dJForce = 9;
     public float fallJumpForce = 9f;
     public float fastFallSpeed = 10f;
-    public float dJForce = 9;
 
     public bool onGround = true;
     public bool isJumping = false;

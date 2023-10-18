@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2871791218540232346}
   - component: {fileID: 7328047949552000568}
-  - component: {fileID: 2180007191537922931}
   - component: {fileID: 6335608294535841035}
   - component: {fileID: 4570394089763232308}
+  - component: {fileID: 1060450866450924132}
   - component: {fileID: 801524398096248930}
   - component: {fileID: 835123735019686424}
   m_Layer: 0
@@ -90,93 +90,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2180007191537922931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2358722263303137472}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88c01b5326b04df49af8604784dbb443, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movement:
-    m_Name: Movement
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 570ff0c0-e8dd-4443-b314-cb8ddb517bdb
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: Forward
-      m_Id: c5b4ca44-e447-4737-be9b-1ce422a95f6a
-      m_Path: 1DAxis
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Movement
-      m_Flags: 4
-    - m_Name: negative
-      m_Id: 30edde24-8920-4e7b-b7e8-ad244f2d4175
-      m_Path: <Keyboard>/a
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Movement
-      m_Flags: 8
-    - m_Name: positive
-      m_Id: 41de19ad-1c2b-4a95-870f-cd6dab991f94
-      m_Path: <Keyboard>/d
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Movement
-      m_Flags: 8
-    m_Flags: 0
-  jump:
-    m_Name: Jump
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: fc74f612-0927-4fee-84d1-a1cfa355c3c8
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 242cc1f4-4449-4ed2-917e-d3f0a2a0acb2
-      m_Path: <Keyboard>/w
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Jump
-      m_Flags: 0
-    m_Flags: 0
-  crouch:
-    m_Name: Crouch
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: b284251f-02c0-44bc-81a6-155178d78e82
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
-  fastFall:
-    m_Name: Fast Fall
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 52cbc3ce-b1c3-4381-abcf-21d037e98036
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
-  speedFactor: 0.02
-  jumpFactor: 5
-  doublejumpFactor: 7
-  fastFallFactor: 0
-  isOnGround: 0
-  canDoubleJump: 0
-  canFastFall: 0
 --- !u!114 &6335608294535841035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,6 +115,105 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17e8626211caed64f8dc03aca0262158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1060450866450924132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2358722263303137472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790869c07b2e71f4abe939e9e3f12ee9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveInput:
+    m_Name: Move Input
+    m_Type: 0
+    m_ExpectedControlType: Button
+    m_Id: 13b6e773-82fe-4922-86cc-614494cd76f8
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: horizontal movement
+      m_Id: a4a77ace-a791-4f1e-b790-702aeb7c3e51
+      m_Path: 1DAxis
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move Input
+      m_Flags: 4
+    - m_Name: negative
+      m_Id: cef2cf95-b790-4316-ad06-b8988a246ae0
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move Input
+      m_Flags: 8
+    - m_Name: positive
+      m_Id: e630755a-a145-4139-a467-783f67366d76
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move Input
+      m_Flags: 8
+    m_Flags: 0
+  jump:
+    m_Name: Jump
+    m_Type: 0
+    m_ExpectedControlType: Button
+    m_Id: 1f0f8063-405d-4d11-ab28-f93a7161e2e5
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: b8eba162-1be5-40f2-8fc6-046cb80ed951
+      m_Path: <Keyboard>/w
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Jump
+      m_Flags: 0
+    m_Flags: 0
+  fastFall:
+    m_Name: Fast Fall
+    m_Type: 0
+    m_ExpectedControlType: Button
+    m_Id: 49465b31-2342-4886-8b28-fc7a42181b73
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 495a10f2-3da2-46bb-8d41-23bbba24867c
+      m_Path: <Keyboard>/s
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Fast Fall
+      m_Flags: 0
+    m_Flags: 0
+  crouch:
+    m_Name: Crouch
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 8fdd294f-0e70-4649-b3f8-17196fa786f7
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  moveSpeed: 5
+  jumpForce: 7
+  dJForce: 7
+  fallJumpForce: 7
+  fastFallSpeed: 10
+  onGround: 1
+  isJumping: 0
+  fallJump: 0
+  isFastFalling: 0
+  isDoubleJumping: 0
+  isCrouching: 0
 --- !u!50 &801524398096248930
 Rigidbody2D:
   serializedVersion: 4
@@ -272,7 +284,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.98, y: 0.98}
   m_EdgeRadius: 0
 --- !u!1 &3816347315660602777
 GameObject:
