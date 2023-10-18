@@ -556,7 +556,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 912824450}
-        m_TargetAssemblyTypeName: mainMenu, Assembly-CSharp
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: PlayGame
         m_Mode: 1
         m_Arguments:
@@ -926,6 +926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a8cf6e59ef824184b90ed7dd8479f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneIndex: 1
 --- !u!4 &912824451
 Transform:
   m_ObjectHideFlags: 0
@@ -1120,6 +1121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a8cf6e59ef824184b90ed7dd8479f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneIndex: 0
 --- !u!4 &998125706
 Transform:
   m_ObjectHideFlags: 0
@@ -1417,6 +1419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a8cf6e59ef824184b90ed7dd8479f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneIndex: 0
 --- !u!4 &1232357728
 Transform:
   m_ObjectHideFlags: 0

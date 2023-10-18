@@ -8,10 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 464179fbe8abb4001a3482533d3819f1
-  - enabled: 0
-    path: Assets/Scenes/JosueFeature.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/JesseExtendedLevel.unity
-    guid: 45f21c746fb0047d49173b31b646b96c
+    path: Assets/Scenes/FeaturesCombined.unity
+    guid: f536b693755e54d4f90875793d06c6e2
   m_configObjects: {}
