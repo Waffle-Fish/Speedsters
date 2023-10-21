@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2872128257275684454}
   - component: {fileID: 4330320448973441398}
   - component: {fileID: 2685758517478329788}
+  - component: {fileID: 8774819177379311702}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player2
@@ -272,6 +273,19 @@ MonoBehaviour:
   isFastFalling: 0
   isDoubleJumping: 0
   isCrouching: 0
+--- !u!114 &8774819177379311702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2406077558296948706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a11fc033ea7d5d14a98d395c033ad6a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1 &3260016854561104742
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,6 +296,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1869757892110807818}
   - component: {fileID: 4395681992446439470}
+  - component: {fileID: 2074364393766457585}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -355,3 +370,20 @@ Camera:
   m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &2074364393766457585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3260016854561104742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0832694b0c06d84197e8919bc1fee32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPos: {fileID: 2406077558296948706}
+  xMin: 8.4
+  xMax: 10.23
+  yMin: 1003.1
+  yMax: 1013.5

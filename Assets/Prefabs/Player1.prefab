@@ -36,7 +36,7 @@ Transform:
   m_Children:
   - {fileID: 4370393139105729725}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7328047949552000568
 SpriteRenderer:
@@ -296,6 +296,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4370393139105729725}
   - component: {fileID: 2224601305380561582}
+  - component: {fileID: 6703704116990284150}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -369,3 +370,20 @@ Camera:
   m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &6703704116990284150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3816347315660602777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0832694b0c06d84197e8919bc1fee32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPos: {fileID: 2358722263303137472}
+  xMin: 16
+  xMax: 230
+  yMin: 2.23
+  yMax: 17.7
