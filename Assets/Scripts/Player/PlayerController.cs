@@ -57,8 +57,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         float MI = moveInput.ReadValue<float>();
-        Debug.Log("Move input value: " + MI);
-
+       
         float VI = rb.velocity.y;
 
         rb.velocity = new Vector2(MI * moveSpeed, rb.velocity.y);
@@ -138,5 +137,10 @@ public class PlayerController : MonoBehaviour
             isDoubleJumping = false; 
             jumps = 2;
         }
+    }
+
+    public void setVel(Vector2 vect)
+    {
+        rb.velocity = vect;
     }
 }
