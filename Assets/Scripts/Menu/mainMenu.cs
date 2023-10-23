@@ -6,13 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField]
-    [Range(0, 10)]
-    private int sceneIndex;
+    [Min(0)]
+    public int sceneIndex;
     public void PlayGame()
     {
         Debug.Log("Lets play!");
-        SceneManager.LoadScene(1);
+        if(sceneIndex >= SceneManager.sceneCountInBuildSettings) { Debug.LogError("Trying to load a scene outside the current number of scenes in the build settings"); }
+        SceneManager.LoadScene(sceneIndex);
     }
     public void QuitGame()
     {
