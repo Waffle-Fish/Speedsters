@@ -147,6 +147,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3977284782802022161, guid: db14c359af914d44b8cceb6416b62939, type: 3}
+      propertyPath: m_UsedByComposite
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4851715782901543752, guid: db14c359af914d44b8cceb6416b62939, type: 3}
+      propertyPath: m_GeometryType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4851715782901543752, guid: db14c359af914d44b8cceb6416b62939, type: 3}
+      propertyPath: m_GenerationType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4851715782901543752, guid: db14c359af914d44b8cceb6416b62939, type: 3}
       propertyPath: m_ColliderPaths.Array.size
       value: 1
