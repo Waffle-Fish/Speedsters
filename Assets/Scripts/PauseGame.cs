@@ -6,7 +6,7 @@ using UnityEngine;
 public class PauseGame : MonoBehaviour
 {
     public static PauseGame Instance { get; private set; }
-    public static bool gameIsPaused = false;
+    public bool isGamePaused = false;
     float prevTimeScale = 0f;
     private void Awake()
     {
@@ -17,12 +17,12 @@ public class PauseGame : MonoBehaviour
     {
         prevTimeScale = Time.timeScale;
         Time.timeScale = 0;
-        gameIsPaused = true;
+        isGamePaused = true;
     }
 
     public void Resume()
     {
         Time.timeScale = prevTimeScale;
-        gameIsPaused = false;
+        isGamePaused = false;
     }
 }
