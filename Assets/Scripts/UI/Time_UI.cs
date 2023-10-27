@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Time_UI : MonoBehaviour
 {
-    public static Time_UI Instance;
+    public static Time_UI Instance { get; private set; }
 
     //Timer GameObjects
     [SerializeField]
@@ -19,18 +19,14 @@ public class Time_UI : MonoBehaviour
 
     TextMeshProUGUI text1;
     TextMeshProUGUI text2;
-
+    private void Awake()
+    {
+        if (Instance == null) { Instance = this; }
+        else { Destroy(gameObject); }
+    }
     // Start is called before the first frame update
     void Start()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            Instance = this;
-        }
         //Connect text
         text1 = time_P1.GetComponent<TextMeshProUGUI>();
         text2 = time_P2.GetComponent<TextMeshProUGUI>();
@@ -42,24 +38,24 @@ public class Time_UI : MonoBehaviour
         if (!isP1Finished && !isP2Finished)
         {
             time += Time.deltaTime;
-            text1.text = displayTime(time);
+            text1.text = DisplayTime(time);
             text2.text = text1.text;
         }
         else if (!isP1Finished && isP2Finished)
         {
             time += Time.deltaTime;
             finishFirst = '2';
-            text1.text = displayTime(time);
+            text1.text = DisplayTime(time);
         }
         else if (isP1Finished && !isP2Finished) 
         { 
             time += Time.deltaTime;
             finishFirst = '1';
-            text2.text = displayTime(time);
+            text2.text = DisplayTime(time);
         }
     }
 
-    private string displayTime(float time)
+    private string DisplayTime(float time)
     {
         float minutes = Mathf.FloorToInt(time / 60);
         float seconds = Mathf.FloorToInt(time % 60);
@@ -68,17 +64,17 @@ public class Time_UI : MonoBehaviour
         return (string.Format("{0:00}:{1:00}:{2:000}", minutes, seconds, milli));
     }
 
-    public string getPlayer1Time()
+    public string GetPlayer1Time()
     {
         return text1.text;
     }
 
-    public string getPlayer2Time()
+    public string GetPlayer2Time()
     {
         return text2.text;
     }
 
-    public char getWinner()
+    public char GetWinner()
     {
         return finishFirst;
     }
