@@ -1,6 +1,6 @@
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
+
 public class Time_UI : MonoBehaviour
 {
     public static Time_UI Instance;
@@ -15,7 +15,7 @@ public class Time_UI : MonoBehaviour
     public bool isP1Finished = false;
     public bool isP2Finished = false;
 
-    char finishFirst; 
+    private char finishFirst; 
 
     TextMeshProUGUI text1;
     TextMeshProUGUI text2;
@@ -59,13 +59,23 @@ public class Time_UI : MonoBehaviour
         }
     }
 
-    string displayTime(float time)
+    private string displayTime(float time)
     {
         float minutes = Mathf.FloorToInt(time / 60);
         float seconds = Mathf.FloorToInt(time % 60);
         float milli = time % 1 * 1000;
 
         return (string.Format("{0:00}:{1:00}:{2:000}", minutes, seconds, milli));
+    }
+
+    public string getPlayer1Time()
+    {
+        return text1.text;
+    }
+
+    public string getPlayer2Time()
+    {
+        return text2.text;
     }
 
     public char getWinner()

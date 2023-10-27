@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//Script responsible for camera clamp (restrictive camera view based on edges)
 public class CameraClampScript : MonoBehaviour
 {
     [SerializeField]
