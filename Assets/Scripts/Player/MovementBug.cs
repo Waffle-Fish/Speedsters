@@ -34,6 +34,12 @@ public class MovementBug : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    // Variables made by Jhosh
+    [SerializeField]
+    private float rayCastDist = 0f;
+    private RaycastHit2D hit;
+    
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -73,7 +79,8 @@ public class MovementBug : MonoBehaviour
             transform.localScale = new Vector3(1f, 1f, 1f);
         }
 
-        onGround = Physics2D.Raycast(groundCheck.position, Vector2.down, 0.01f, groundLayer);
+        //onGround = Physics2D.Raycast(groundCheck.position, Vector2.down, 0.01f, groundLayer);
+        hit = Physics2D.Raycast(transform.position, Vector2.down, 0.01f, groundLayer);
 
 
         if (jump.WasPressedThisFrame() && jumps > 0)
@@ -146,5 +153,18 @@ public class MovementBug : MonoBehaviour
     public void setVel(Vector2 vect)
     {
         rb.velocity = vect;
+    }
+
+
+    private void OnDrawGizmos()
+    {
+        hit = Physics2D.Raycast(transform.position, Vector2.down, rayCastDist, groundLayer);
+        onGround = Physics2D.Raycast(transform.position, Vector2.down, rayCastDist, groundLayer);
+        Ray r = new(transform.position, Vector2.down * rayCastDist);
+        Debug.Log("Impact point: " + hit.point);
+        //onGround = Physics2D.Raycast(groundCheck.position, Vector2.down, 0.01f, groundLayer);
+        if(onGround) { Gizmos.color = Color.red; }
+        else {  Gizmos.color = Color.green;}
+        Gizmos.DrawRay(r);
     }
 }
