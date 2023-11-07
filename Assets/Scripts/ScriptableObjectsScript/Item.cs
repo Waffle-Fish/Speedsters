@@ -12,4 +12,5 @@ public class Item : ScriptableObject
     public bool doesDmg;
     public int dmgAmount;
     public List<Sprite> spritesDuringItemUse;
+
 }
