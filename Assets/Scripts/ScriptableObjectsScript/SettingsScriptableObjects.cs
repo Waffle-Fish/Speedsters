@@ -1,10 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Settings", menuName = "Assets", order = 1)]
+[Serializable]
+[CreateAssetMenu(fileName = "Settings", menuName = "Settings/SettingsScriptableObject", order = 1)]
 public class SettingsScriptableObjects : ScriptableObject
 {
-    public float MusicVolume;
-    public float SFXVolume;
+    [Range(0f,1f)]
+    public float MusicVolume = 0f;
+    [Range(0f,1f)]
+    public float SFXVolume = 0f;
 }

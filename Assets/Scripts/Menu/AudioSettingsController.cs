@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,22 +10,42 @@ public class AudioSettingsController : MonoBehaviour
     [SerializeField]
     private SettingsScriptableObjects settings;
     [SerializeField]
-    private GameObject musicSlider;
+    private GameObject musicSliderObj;
     [SerializeField]
-    private GameObject sfxSlider;
+    private GameObject sfxSliderObj;
+    [SerializeField]
+    private GameObject musicVolumeTextObj;
+    [SerializeField]
+    private GameObject sfxVolumeTextObj;
 
-    private float musicVolume = 0f;
-    private float sfxVolume = 0f;
+    private Slider musicSlider;
+    private Slider sfxSlider;
+    private TextMeshProUGUI musicVolumeTMP;
+    private TextMeshProUGUI sfxVolumeTMP;
+
 
     private void Awake()
     {
-        musicVolume = settings.MusicVolume;
-        sfxVolume = settings.SFXVolume;
-        musicSlider.GetComponent<Slider>().value = musicVolume;
-        sfxSlider.GetComponent<Slider>().value = sfxVolume;
-    }
-    private void Start() 
-    {
+        musicSlider = musicSliderObj.GetComponent<Slider>();
+        sfxSlider = sfxSliderObj.GetComponent<Slider>();
+        musicVolumeTMP = musicVolumeTextObj.GetComponent<TextMeshProUGUI>();
+        sfxVolumeTMP = sfxVolumeTextObj.GetComponent<TextMeshProUGUI>();
+        UpdateSliderAndText();
 
+    }
+
+    private void UpdateSliderAndText()
+    {
+        musicSlider.value = settings.MusicVolume;
+        sfxSlider.value = settings.SFXVolume;
+        musicVolumeTMP.text = string.Format("{0:0}%", musicSlider.value * 100);
+        sfxVolumeTMP.text = string.Format("{0:0}%", sfxSlider.value * 100);
+    }
+
+    public void UpdateVolume()
+    {
+        settings.MusicVolume = musicSlider.value;
+        settings.SFXVolume = sfxSlider.value;
+        UpdateSliderAndText();
     }
 }
