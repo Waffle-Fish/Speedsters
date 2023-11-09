@@ -23,29 +23,25 @@ public class AudioSettingsController : MonoBehaviour
     private TextMeshProUGUI musicVolumeTMP;
     private TextMeshProUGUI sfxVolumeTMP;
 
-
     private void Awake()
     {
         musicSlider = musicSliderObj.GetComponent<Slider>();
         sfxSlider = sfxSliderObj.GetComponent<Slider>();
         musicVolumeTMP = musicVolumeTextObj.GetComponent<TextMeshProUGUI>();
         sfxVolumeTMP = sfxVolumeTextObj.GetComponent<TextMeshProUGUI>();
-        UpdateSliderAndText();
-
-    }
-
-    private void UpdateSliderAndText()
-    {
         musicSlider.value = settings.MusicVolume;
         sfxSlider.value = settings.SFXVolume;
-        musicVolumeTMP.text = string.Format("{0:0}%", musicSlider.value * 100);
-        sfxVolumeTMP.text = string.Format("{0:0}%", sfxSlider.value * 100);
     }
-
-    public void UpdateVolume()
+    
+    public void UpdateMusicVolume()
     {
         settings.MusicVolume = musicSlider.value;
+        musicVolumeTMP.text = string.Format("{0:0}%", settings.MusicVolume * 100);
+    }
+
+    public void UpdateSFXVolume()
+    {
         settings.SFXVolume = sfxSlider.value;
-        UpdateSliderAndText();
+        sfxVolumeTMP.text = string.Format("{0:0}%", settings.SFXVolume * 100);
     }
 }
