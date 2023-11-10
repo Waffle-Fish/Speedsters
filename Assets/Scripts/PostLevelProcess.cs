@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PostLevelProcess : MonoBehaviour
 {
     [SerializeField]
     float initialDelay = 0f;
+    [SerializeField]
+    GameObject PlayerTextGO;
 
     public static PostLevelProcess Instance { get; private set; }
     List<RectTransform> rectTransforms = new();
@@ -25,6 +28,8 @@ public class PostLevelProcess : MonoBehaviour
     public IEnumerator StartProcess() {
         yield return new WaitForSecondsRealtime(initialDelay); // Can add a slight delay between player finishing and finish screen
         PauseGame.Instance.Pause();
+        TextMeshProUGUI PlayerTMP = PlayerTextGO.GetComponent<TextMeshProUGUI>();
+        PlayerTMP.text = string.Format("Player {0}!",Time_UI.Instance.GetWinner());
         for (int i = 1; i < rectTransforms.Count; i++)
         {
             rectTransforms[i].gameObject.SetActive(true);
