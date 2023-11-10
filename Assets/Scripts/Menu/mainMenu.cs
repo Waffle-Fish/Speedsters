@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    [Min(0)]
+    public int sceneIndex;
     public void PlayGame(int sceneIndex)
     {
         Debug.Log("Lets play!");
@@ -14,7 +16,7 @@ public class MainMenu : MonoBehaviour
     }
 
     //Make sure to know what scene index the levels areS
-    public void setIndex(int index)
+    public void SetIndex(int index)
     {
         sceneIndex = index;
     }
