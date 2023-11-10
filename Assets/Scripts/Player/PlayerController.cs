@@ -56,6 +56,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (PauseGame.Instance.isGamePaused) { return; } //If game is paused, don't register movement
         float MI = moveInput.ReadValue<float>();
        
         float VI = rb.velocity.y;
