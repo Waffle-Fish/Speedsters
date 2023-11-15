@@ -5,8 +5,7 @@ public class MainMenu : MonoBehaviour
 {
     [Min(0)]
     private int sceneIndex;
-
-    public bool isPlayer2;
+    private bool isPlayer2;
 
     private void PlayGame()
     {
@@ -38,6 +37,11 @@ public class MainMenu : MonoBehaviour
                 PlayGame(); 
             }
         }
+    }
+
+    public void setIsPlayer2(bool state)
+    {
+        isPlayer2 = state;
     }
 
     public void QuitGame()
