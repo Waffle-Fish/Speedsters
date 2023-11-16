@@ -7,7 +7,7 @@ public class SelectCharacter : MonoBehaviour
     public static SelectCharacter Instance { get; private set; }
 
     private int[] index = new int[] {
-       0, 0
+       0, 0, 0
     };
 
     [SerializeField]
