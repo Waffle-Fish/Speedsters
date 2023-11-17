@@ -50,6 +50,10 @@ public class ReadyButton : MonoBehaviour
         b.colors = block;
     }
     
+    public void playButtonCheck(ReadyButton b)
+    {
+    }
+
     //Resets buttons in case of back out
     public void reset1Button(Button b1)
     {
