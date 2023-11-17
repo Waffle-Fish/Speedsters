@@ -10,6 +10,11 @@ public class ReadyButton : MonoBehaviour
     public bool p1ready = false;
     public bool p2ready = false;
 
+    [SerializeField]
+    Sprite unreadyButtonImg;
+    [SerializeField]
+    Sprite readyButtonImg;
+
     private void Awake()
     {
         if (Instance == null) { Instance = this; }
@@ -50,8 +55,20 @@ public class ReadyButton : MonoBehaviour
         b.colors = block;
     }
     
-    public void playButtonCheck(ReadyButton b)
+    public void playButtonCheck(Button b)
     {
+        if (p1ready && p2ready && CharacterSelectMenu.Instance.getIsPlayer2())
+        {
+            b.image.sprite = readyButtonImg;
+        }
+        else if (p1ready && !CharacterSelectMenu.Instance.getIsPlayer2())
+        {
+            b.image.sprite = readyButtonImg;
+        }
+        else
+        {
+            b.image.sprite = unreadyButtonImg;
+        }
     }
 
     //Resets buttons in case of back out

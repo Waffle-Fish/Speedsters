@@ -9,7 +9,7 @@ public class playerCountSelect : MonoBehaviour
     [SerializeField]
     GameObject[] scenes;
 
-    public void changeSelect(MainMenu menu)
+    public void changeSelect(CharacterSelectMenu menu)
     {
         if (dropdown.value== 1) 
         {

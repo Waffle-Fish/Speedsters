@@ -1,11 +1,21 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+public class CharacterSelectMenu : MonoBehaviour
 {
+    public static CharacterSelectMenu Instance { get; private set; }
+
     [Min(0)]
     private int sceneIndex;
-    private bool isPlayer2;
+
+    [SerializeField]
+    bool isPlayer2;
+
+    private void Awake()
+    {
+        if (Instance == null) { Instance = this; }
+        else { Destroy(gameObject); }
+    }
 
     private void PlayGame()
     {
@@ -42,6 +52,11 @@ public class MainMenu : MonoBehaviour
     public void setIsPlayer2(bool state)
     {
         isPlayer2 = state;
+    }
+
+    public bool getIsPlayer2()
+    {
+        return isPlayer2;
     }
 
     public void QuitGame()
