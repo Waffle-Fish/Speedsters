@@ -36,12 +36,12 @@ public class AudioSettingsController : MonoBehaviour
     public void UpdateMusicVolume()
     {
         settings.MusicVolume = musicSlider.value;
-        musicVolumeTMP.text = string.Format("{0:0}%", settings.MusicVolume * 100);
+        musicVolumeTMP.text = string.Format("{0:0}%", Mathf.Round(settings.MusicVolume * 100));
     }
 
     public void UpdateSFXVolume()
     {
         settings.SFXVolume = sfxSlider.value;
-        sfxVolumeTMP.text = string.Format("{0:0}%", settings.SFXVolume * 100);
+        sfxVolumeTMP.text = string.Format("{0:0}%", Mathf.Round(settings.SFXVolume * 100));
     }
 }
