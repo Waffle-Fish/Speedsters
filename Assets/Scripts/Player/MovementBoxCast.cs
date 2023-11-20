@@ -22,9 +22,8 @@ public class MovementBoxCast : MonoBehaviour
     public bool fallJump = false;
     public bool isFastFalling = false;
     public bool isDoubleJumping = false;
-    public bool isCrouching = false;
 
-    private int jumps = 2;
+    public int jumps = 2;
 
     private BoxCollider2D characterCollider;
     private Vector2 standingSize;
@@ -36,7 +35,6 @@ public class MovementBoxCast : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         characterCollider = GetComponent<BoxCollider2D>();
-
     }
     private void OnEnable()
     {
@@ -78,6 +76,7 @@ public class MovementBoxCast : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
                 isJumping = true;
                 jumps--;
+
             }
 
             else if (VI < 0)
@@ -95,7 +94,6 @@ public class MovementBoxCast : MonoBehaviour
                 isDoubleJumping = true;
             }
         }
-
         float fastFallInput = fastFall.ReadValue<float>();
 
         if (fastFallInput > 0 && isJumping)
@@ -108,20 +106,9 @@ public class MovementBoxCast : MonoBehaviour
             isFastFalling = false;
         }
 
-        if (crouch.WasPressedThisFrame())
+        if(OnGround())
         {
-            characterCollider.size = crouchingSize;
-            isCrouching = true;
-        }
-
-        if (crouch.WasReleasedThisFrame())
-        {
-            characterCollider.size = standingSize;
-            isCrouching = false;
-        }
-
-        if(OnGround() == true)
-        {
+            Debug.Log("On Ground");
             isJumping = false;
             fallJump = false;
             isFastFalling = false;
@@ -137,6 +124,6 @@ public class MovementBoxCast : MonoBehaviour
 
     private bool OnGround()
     {
-        return Physics2D.BoxCast(characterCollider.bounds.center, characterCollider.bounds.size, 0f, Vector2.down, .3f, Ground);
+        return Physics2D.BoxCast(characterCollider.bounds.center, characterCollider.bounds.size, 0f, Vector2.down, .1f, Ground);
     }
 }
