@@ -25,19 +25,20 @@ public class PlayerLife : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+ /*   private void OnCollisionEnter2D(Collision2D collision)
     {
-        /* Any physical object that is tagged with InstaObst will respawn the player with contact*/
+        // Any physical object that is tagged with InstaObst will respawn the player with contact
         if (collision.gameObject.tag == "InstaObst")
         { 
             takeDamage(100);
         }
-        /* Any physical object that is tagged with RandomDmg will hurt the player with contact*/
+        // Any physical object that is tagged with RandomDmg will hurt the player with contact
         else if (collision.gameObject.tag == "RandomDmg")
         {
             takeDamage(20);
         }
     }
+ */
 
     public void takeDamage(int dmg)
     {
@@ -45,6 +46,7 @@ public class PlayerLife : MonoBehaviour
         if (health <= 0)
         {
             transform.position = respawnPoint;
+            health = 100;
         }
     }
 }
