@@ -10,7 +10,7 @@ public class ParallaxBehavior : MonoBehaviour
     [SerializeField]
     Transform playerTrans;
     [SerializeField]
-    float yOffest = 0f;
+    float yOffest = 0;
     
     Vector2 startPosition;
     float startZ;
