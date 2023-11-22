@@ -13,7 +13,6 @@ EditorBuildSettings:
     guid: 988d34b4f84a5aa41b5fe2024d1b6068
   - enabled: 0
     path: Assets/Scenes/Old_FeaturesCombined.unity
-    path: Assets/Scenes/JesseLevel1.unity
     guid: f536b693755e54d4f90875793d06c6e2
   - enabled: 0
     path: Assets/Scenes/JosuesMainMenu.unity
