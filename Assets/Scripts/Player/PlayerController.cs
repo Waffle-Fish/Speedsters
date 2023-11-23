@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] InputAction fastFall;
     [SerializeField] InputAction crouch;
 
-    [SerializeField] Animator anim;
+    //[SerializeField] Animator anim;
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
     public float dJForce = 9;
@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
             transform.localScale = new Vector3(1f, 1f, 1f);
         }
 
-        anim.SetFloat("Speed", rb.velocity.x);
+        //anim.SetFloat("Speed", rb.velocity.x);
 
         if (jump.WasPressedThisFrame() && jumps > 0)
         {
