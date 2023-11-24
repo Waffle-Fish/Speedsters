@@ -90,7 +90,6 @@ public abstract class ItemCore : MonoBehaviour
     private void ProcessCollision()
     {
         itemSpriteRenderer.enabled = false;
-        StartCoroutine(DelayActivation());
 
         // TODO:
         //      IF slot full, auto use item in slot
@@ -98,7 +97,7 @@ public abstract class ItemCore : MonoBehaviour
         //      This will need to call UI
     }
 
-    private IEnumerator DelayActivation()
+    public IEnumerator ActivateItem()
     {
         yield return new WaitForSeconds(effectDelay);
         StartCoroutine(ActivateEffect());
