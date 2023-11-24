@@ -27,6 +27,7 @@ public class FinishLevel : MonoBehaviour
     {
         //Removes momentum and disables PlayerController Script
         playerMovement.setVel(new Vector2(0, 0));
+        playerMovement.finished = true;
         playerMovement.enabled = false;
 
     }
