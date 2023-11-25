@@ -1,0 +1,132 @@
+{
+    "name": "Controls",
+    "maps": [
+        {
+            "name": "Player1",
+            "id": "e498cddd-2f47-4aab-adb0-7881046a5856",
+            "actions": [
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "4363b912-418c-42cb-a17b-91b981ec631e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Movement",
+                    "type": "Value",
+                    "id": "53773ee0-2859-4a68-98f6-812e5b2c8cb1",
+                    "expectedControlType": "Double",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "ac8fe1e2-cd1a-4430-adc4-4ddb14064fd3",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "d9cf3c3b-fa6c-4ba5-9e5f-d59862945522",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "4282736b-9c44-4e28-8f51-aea777c17540",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "9c9194db-ed3e-4ab8-8434-a91bfd9f20aa",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        },
+        {
+            "name": "Player2",
+            "id": "f8b4f91c-0626-408f-b382-e5df87cf5379",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "8fa5aa35-d521-4545-ba93-b1f07db65f48",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "87f39cd0-8d5c-440a-a3d8-120e848940c9",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "General",
+            "id": "aae97232-5dde-462a-9684-22fdec819255",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "cef0225d-ddbb-4d38-afe0-712225894f8b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "5480506d-ff19-4f84-aec3-aaf482cf981a",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

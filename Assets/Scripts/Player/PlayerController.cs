@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEditor.Callbacks;
+using UnityEditor.EditorTools;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] InputAction moveInput;
-    [SerializeField] InputAction jump;
-    [SerializeField] InputAction fastFall;
+    [Tooltip("Buffer time between jumps to prevent spamming press")]
+    [SerializeField]
+    private Vector2 groundDetectSize;
 
-    //[SerializeField] Animator anim;
+    [SerializeField] Animator anim;
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
     public float dJForce = 9;
@@ -21,104 +22,40 @@ public class PlayerController : MonoBehaviour
     public float fastFallSpeed = 10f;
     public bool finished = false;
 
-    public bool onGround = true;
-    public bool fallJump = false;
-    public bool isFastFalling = false;
-
+    
     private BoxCollider2D characterCollider;
     private Rigidbody2D rb;
-    private float YForce => jump.ReadValue<float>() * jumpForce;
-    private float XForce => moveInput.ReadValue<float>() * moveSpeed;
+    private PlayerInput playerInput;
+    private Controls playerControls;
     private int jumpCount = 2;
-    private RaycastHit2D hit;
-    private void Start()
+    private LayerMask GroundLayer => LayerMask.GetMask("Ground");
+    private Vector2 boxOrigin;
+    private InputAction jump;
+    private int detectTimer = 3;
+    private bool justJump = false;
+
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         characterCollider = GetComponent<BoxCollider2D>();
-        hit = Physics2D.Raycast(transform.position, Vector2.down, 5f);
-    }
-    private void OnEnable()
-    {
-        moveInput.Enable();
-        jump.Enable();
-        fastFall.Enable();
+        playerInput = GetComponent<PlayerInput>();
+
+        playerControls = new();
+        playerControls.Player1.Enable();
+        jump = playerControls.Player1.Jump;
+        playerControls.Player1.Jump.performed += ActivateJump;
     }
 
-    private void OnDisable()
-    {
-        moveInput.Disable();
-        jump.Disable();
-        fastFall.Disable();
-    }
-
-    private void Update()
+    private void FixedUpdate()
     {
         if (PauseGame.Instance.isGamePaused || finished) { return; } //If game is paused, don't register movement
-        float moveInpVal = moveInput.ReadValue<float>();
-
+        
+        float moveInpVal = playerControls.Player1.Movement.ReadValue<float>();//moveInput.ReadValue<float>();
         rb.velocity = new Vector2(moveInpVal * moveSpeed, rb.velocity.y);
-        hit = Physics2D.Raycast(transform.position, Vector2.down, 5f);
-        if(hit.collider != null && !hit.collider.CompareTag("Player1"))
-        {
-            Debug.Log("I have hit " + hit.collider.gameObject.name);
-        }
-        // Flips character 
-        if (moveInpVal > 0)
-        {
-            transform.localScale = new Vector3(-1f, 1f, 1f);
-        }
-        else if (moveInpVal < 0)
-        {
-            transform.localScale = new Vector3(1f, 1f, 1f);
-        }
+        FlipCharacter(moveInpVal);
+        DetectGround();
 
-        if(jump.WasPerformedThisFrame())
-        {
-            activateJump(jumpForce);
-            // switch (jumpCount)
-            // {
-            //     case 2:
-            //         activateJump(jumpForce);
-            //         break;
-            //     case 1:
-            //         activateJump(dJForce);
-            //         break;
-            //     default:
-            //         break;
-            // }
-        }
-
-        //Debug.Log("Player velocity: " + rb.velocity);
-
-        //anim.SetFloat("Speed", rb.velocity.x);
-
-        // if (jump.WasPressedThisFrame() && jumps > 0)
-        // {
-        //     if (!isJumping)
-        //     {
-        //         rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-        //         isJumping = true;
-        //         onGround = false;
-        //         jumps--;
-        //     }
-
-        //     else if (VI < 0)
-        //     {
-        //         rb.velocity = new Vector2(rb.velocity.x, fallJumpForce);
-        //         isDoubleJumping = true;
-        //         fallJump = true;
-        //         jumps--;
-        //     }
-
-        //     else if (isJumping)
-        //     {
-        //         rb.velocity = new Vector2(rb.velocity.x, dJForce);
-        //         jumps--;
-        //         isDoubleJumping = true;
-        //         onGround = false;
-        //     }
-        // }
-
+        anim.SetFloat("Speed", rb.velocity.x);
         // float fastFallInput = fastFall.ReadValue<float>();
         // if (fastFallInput > 0 && isJumping)
         // {
@@ -131,10 +68,40 @@ public class PlayerController : MonoBehaviour
         // }
     }
 
-    private void activateJump(float f)
+    private void DetectGround()
     {
+        if (justJump && detectTimer > 0)
+        {
+            detectTimer--;
+            return;
+        }
+        justJump = false; 
+        detectTimer = 3;
+        boxOrigin = new(transform.position.x, transform.position.y - characterCollider.size.y / 2f);
+        Collider2D groundDetect = Physics2D.OverlapBox(boxOrigin, groundDetectSize, 0f, GroundLayer);
+        if (groundDetect && groundDetect.CompareTag("Ground")) { jumpCount = 2; }
+    }
+
+    private void FlipCharacter(float moveInpVal)
+    {
+        if (moveInpVal > 0)
+        {
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
+        else if (moveInpVal < 0)
+        {
+            transform.localScale = new Vector3(1f, 1f, 1f);
+        }
+    }
+
+    public void ActivateJump(InputAction.CallbackContext context)
+    {
+        if(!(context.performed && jumpCount > 0)) { return; }
+        justJump = true;
+        Vector2 f = (jumpCount == 2) ? Vector2.up *  jumpForce : Vector2.up *  dJForce;
+        rb.AddForce(f, ForceMode2D.Impulse);
         jumpCount--;
-        rb.AddForce(new(0,jump.ReadValue<float>() * f), ForceMode2D.Impulse);
+        //Debug.Log("Remaining Jumps: " + jumpCount);
     }
 
     public void setVel(Vector2 vect)
@@ -144,7 +111,7 @@ public class PlayerController : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawRay(transform.position, Vector2.down * 5);
+       Gizmos.color = Color.red;
+       Gizmos.DrawCube(boxOrigin, groundDetectSize);
     }
 }
