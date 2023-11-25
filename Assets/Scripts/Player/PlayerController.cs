@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
     public float dJForce = 9;
-    public float fallJumpForce = 9f;
     public float fastFallSpeed = 10f;
     public bool finished = false;
 
@@ -30,9 +29,9 @@ public class PlayerController : MonoBehaviour
     private int jumpCount = 2;
     private LayerMask GroundLayer => LayerMask.GetMask("Ground");
     private Vector2 boxOrigin;
-    private InputAction jump;
     private int detectTimer = 3;
     private bool justJump = false;
+    private bool onGround = true;
 
     private void Awake()
     {
@@ -41,31 +40,32 @@ public class PlayerController : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
 
         playerControls = new();
-        playerControls.Player1.Enable();
-        jump = playerControls.Player1.Jump;
-        playerControls.Player1.Jump.performed += ActivateJump;
+        playerControls.General.Enable();
+        if(gameObject.CompareTag("Player1"))
+        {
+            playerControls.Player1Controls.Enable();
+            playerControls.Player1Controls.Jump.performed += ActivateJump;
+            playerControls.Player1Controls.FastFall.performed += FastFall;
+        }
+        else
+        {
+            playerControls.Player2Controls.Enable();
+            playerControls.Player2Controls.Jump.performed += ActivateJump;
+            playerControls.Player2Controls.FastFall.performed += FastFall;
+        }
+        
+        //playerControls.General.PauseMenu.performed += PauseGame.Instance.ToggleMenu;
     }
 
     private void FixedUpdate()
     {
         if (PauseGame.Instance.isGamePaused || finished) { return; } //If game is paused, don't register movement
         
-        float moveInpVal = playerControls.Player1.Movement.ReadValue<float>();//moveInput.ReadValue<float>();
+        float moveInpVal = gameObject.CompareTag("Player1") ? playerControls.Player1Controls.Forward.ReadValue<float>() : playerControls.Player2Controls.Forward.ReadValue<float>();
         rb.velocity = new Vector2(moveInpVal * moveSpeed, rb.velocity.y);
         FlipCharacter(moveInpVal);
         DetectGround();
-
         anim.SetFloat("Speed", rb.velocity.x);
-        // float fastFallInput = fastFall.ReadValue<float>();
-        // if (fastFallInput > 0 && isJumping)
-        // {
-        //    rb.velocity = new Vector2(rb.velocity.x,-fastFallSpeed);
-        //    isFastFalling = true;
-        // }
-        // else if (!isJumping)
-        // {
-        //     isFastFalling = false;
-        // }
     }
 
     private void DetectGround()
@@ -79,7 +79,10 @@ public class PlayerController : MonoBehaviour
         detectTimer = 3;
         boxOrigin = new(transform.position.x, transform.position.y - characterCollider.size.y / 2f);
         Collider2D groundDetect = Physics2D.OverlapBox(boxOrigin, groundDetectSize, 0f, GroundLayer);
-        if (groundDetect && groundDetect.CompareTag("Ground")) { jumpCount = 2; }
+        if (groundDetect && groundDetect.CompareTag("Ground")) { 
+            jumpCount = 2;
+            onGround = true;
+        }
     }
 
     private void FlipCharacter(float moveInpVal)
@@ -94,14 +97,24 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void ActivateJump(InputAction.CallbackContext context)
+    private void ActivateJump(InputAction.CallbackContext context)
     {
         if(!(context.performed && jumpCount > 0)) { return; }
         justJump = true;
+        onGround = false;
         Vector2 f = (jumpCount == 2) ? Vector2.up *  jumpForce : Vector2.up *  dJForce;
         rb.AddForce(f, ForceMode2D.Impulse);
         jumpCount--;
         //Debug.Log("Remaining Jumps: " + jumpCount);
+    }
+
+    private void FastFall(InputAction.CallbackContext context)
+    {
+        if(!context.performed) { return; }
+        if (!onGround)
+        {
+           rb.velocity = new Vector2(rb.velocity.x,-fastFallSpeed);
+        }
     }
 
     public void setVel(Vector2 vect)

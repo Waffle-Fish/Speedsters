@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PauseGame : MonoBehaviour
 {
@@ -31,6 +32,12 @@ public class PauseGame : MonoBehaviour
         StartCoroutine(ResumeGameDelay());
         Time.timeScale = prevTimeScale;
         isGamePaused = false;
+    }
+
+    public void ToggleMenu(InputAction.CallbackContext context)
+    {
+        if(isGamePaused) { Resume();}
+        else { Pause(); }
     }
 
     private IEnumerator ResumeGameDelay()

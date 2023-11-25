@@ -24,32 +24,120 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     ""name"": ""Controls"",
     ""maps"": [
         {
-            ""name"": ""Player1"",
-            ""id"": ""e498cddd-2f47-4aab-adb0-7881046a5856"",
+            ""name"": ""General"",
+            ""id"": ""aae97232-5dde-462a-9684-22fdec819255"",
             ""actions"": [
+                {
+                    ""name"": ""PauseMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""437ec4b6-9ed0-4ac6-b88b-ab7abb118257"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""a34f1852-f2d6-4926-b58a-67b2a6a9f085"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PauseMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Player1Controls"",
+            ""id"": ""6fd16cf1-c2e2-40e2-937e-9ef9db64241a"",
+            ""actions"": [
+                {
+                    ""name"": ""Forward"",
+                    ""type"": ""Value"",
+                    ""id"": ""107da230-68bd-4058-ad22-b79e0661ac61"",
+                    ""expectedControlType"": ""Double"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
                 {
                     ""name"": ""Jump"",
                     ""type"": ""Button"",
-                    ""id"": ""4363b912-418c-42cb-a17b-91b981ec631e"",
+                    ""id"": ""c4971eb4-01c2-48f7-8f8e-b91cfcfcd276"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Movement"",
-                    ""type"": ""Value"",
-                    ""id"": ""53773ee0-2859-4a68-98f6-812e5b2c8cb1"",
-                    ""expectedControlType"": ""Double"",
+                    ""name"": ""FastFall"",
+                    ""type"": ""Button"",
+                    ""id"": ""ed872625-fd01-4c76-9054-11b08be38262"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": true
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UseItem"",
+                    ""type"": ""Button"",
+                    ""id"": ""8e02ecdc-c43f-4a3e-ab0d-cd83e7f35fc8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Respawn"",
+                    ""type"": ""Button"",
+                    ""id"": ""42a9526d-a460-4684-b8c5-383eec2c3c11"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
                 {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""c0b82928-5f84-467b-9eb4-fdcdf5e1913b"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Forward"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""9eff0f12-217d-40a9-8134-af890eaefe49"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Forward"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""c6285a95-fb0e-4e96-b83d-a155f98b0379"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Forward"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": """",
-                    ""id"": ""ac8fe1e2-cd1a-4430-adc4-4ddb14064fd3"",
+                    ""id"": ""c7f607c2-2326-45c0-be8e-5e7f98f379dc"",
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -59,91 +147,165 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
+                    ""name"": """",
+                    ""id"": ""43b03687-2875-4109-890a-bbb9a202aef8"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FastFall"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1187d941-d897-4acb-93e1-dacb5f90d2ca"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseItem"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a7da6e1f-f05e-46a0-b266-ad600058cc25"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Respawn"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Player2Controls"",
+            ""id"": ""304c6693-1889-4620-8386-4d2a42ec0798"",
+            ""actions"": [
+                {
+                    ""name"": ""Forward"",
+                    ""type"": ""Value"",
+                    ""id"": ""eb3e7255-9624-4d70-b813-ea75102d3d9d"",
+                    ""expectedControlType"": ""Double"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""1faa45f9-0291-4826-bd26-4236d399ecb6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""FastFall"",
+                    ""type"": ""Button"",
+                    ""id"": ""46c10504-23ca-4648-a0c3-ee7cda27768a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UseItem"",
+                    ""type"": ""Button"",
+                    ""id"": ""6a4aa586-d2d3-425f-a676-61e72a251b91"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Respawn"",
+                    ""type"": ""Button"",
+                    ""id"": ""255cadb7-cf9f-4904-8f4a-279413b6f79e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
                     ""name"": ""1D Axis"",
-                    ""id"": ""d9cf3c3b-fa6c-4ba5-9e5f-d59862945522"",
+                    ""id"": ""67406e3a-c58f-469e-8422-d0ebe387c11a"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Forward"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": ""negative"",
-                    ""id"": ""4282736b-9c44-4e28-8f51-aea777c17540"",
+                    ""id"": ""d4fb0cac-c07b-4263-93ab-49f5e37c658e"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Forward"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""positive"",
-                    ""id"": ""9c9194db-ed3e-4ab8-8434-a91bfd9f20aa"",
+                    ""id"": ""f6f08029-b326-4852-8adf-b0fe694c112a"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Forward"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
-                }
-            ]
-        },
-        {
-            ""name"": ""Player2"",
-            ""id"": ""f8b4f91c-0626-408f-b382-e5df87cf5379"",
-            ""actions"": [
-                {
-                    ""name"": ""New action"",
-                    ""type"": ""Button"",
-                    ""id"": ""8fa5aa35-d521-4545-ba93-b1f07db65f48"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                }
-            ],
-            ""bindings"": [
+                },
                 {
                     ""name"": """",
-                    ""id"": ""87f39cd0-8d5c-440a-a3d8-120e848940c9"",
-                    ""path"": """",
+                    ""id"": ""a3dff90b-5e63-41a2-8cad-b368adc9b70a"",
+                    ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""New action"",
+                    ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                }
-            ]
-        },
-        {
-            ""name"": ""General"",
-            ""id"": ""aae97232-5dde-462a-9684-22fdec819255"",
-            ""actions"": [
-                {
-                    ""name"": ""New action"",
-                    ""type"": ""Button"",
-                    ""id"": ""cef0225d-ddbb-4d38-afe0-712225894f8b"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                }
-            ],
-            ""bindings"": [
+                },
                 {
                     ""name"": """",
-                    ""id"": ""5480506d-ff19-4f84-aec3-aaf482cf981a"",
-                    ""path"": """",
+                    ""id"": ""107405c8-d858-4b4b-850f-4117737ab623"",
+                    ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""New action"",
+                    ""action"": ""FastFall"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fee3d6c5-e07b-4200-9164-d83beaf235bc"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseItem"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5258de40-20de-4073-aaff-6837ffe14f09"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Respawn"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -152,16 +314,23 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     ],
     ""controlSchemes"": []
 }");
-        // Player1
-        m_Player1 = asset.FindActionMap("Player1", throwIfNotFound: true);
-        m_Player1_Jump = m_Player1.FindAction("Jump", throwIfNotFound: true);
-        m_Player1_Movement = m_Player1.FindAction("Movement", throwIfNotFound: true);
-        // Player2
-        m_Player2 = asset.FindActionMap("Player2", throwIfNotFound: true);
-        m_Player2_Newaction = m_Player2.FindAction("New action", throwIfNotFound: true);
         // General
         m_General = asset.FindActionMap("General", throwIfNotFound: true);
-        m_General_Newaction = m_General.FindAction("New action", throwIfNotFound: true);
+        m_General_PauseMenu = m_General.FindAction("PauseMenu", throwIfNotFound: true);
+        // Player1Controls
+        m_Player1Controls = asset.FindActionMap("Player1Controls", throwIfNotFound: true);
+        m_Player1Controls_Forward = m_Player1Controls.FindAction("Forward", throwIfNotFound: true);
+        m_Player1Controls_Jump = m_Player1Controls.FindAction("Jump", throwIfNotFound: true);
+        m_Player1Controls_FastFall = m_Player1Controls.FindAction("FastFall", throwIfNotFound: true);
+        m_Player1Controls_UseItem = m_Player1Controls.FindAction("UseItem", throwIfNotFound: true);
+        m_Player1Controls_Respawn = m_Player1Controls.FindAction("Respawn", throwIfNotFound: true);
+        // Player2Controls
+        m_Player2Controls = asset.FindActionMap("Player2Controls", throwIfNotFound: true);
+        m_Player2Controls_Forward = m_Player2Controls.FindAction("Forward", throwIfNotFound: true);
+        m_Player2Controls_Jump = m_Player2Controls.FindAction("Jump", throwIfNotFound: true);
+        m_Player2Controls_FastFall = m_Player2Controls.FindAction("FastFall", throwIfNotFound: true);
+        m_Player2Controls_UseItem = m_Player2Controls.FindAction("UseItem", throwIfNotFound: true);
+        m_Player2Controls_Respawn = m_Player2Controls.FindAction("Respawn", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -220,115 +389,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Player1
-    private readonly InputActionMap m_Player1;
-    private List<IPlayer1Actions> m_Player1ActionsCallbackInterfaces = new List<IPlayer1Actions>();
-    private readonly InputAction m_Player1_Jump;
-    private readonly InputAction m_Player1_Movement;
-    public struct Player1Actions
-    {
-        private @Controls m_Wrapper;
-        public Player1Actions(@Controls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Jump => m_Wrapper.m_Player1_Jump;
-        public InputAction @Movement => m_Wrapper.m_Player1_Movement;
-        public InputActionMap Get() { return m_Wrapper.m_Player1; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(Player1Actions set) { return set.Get(); }
-        public void AddCallbacks(IPlayer1Actions instance)
-        {
-            if (instance == null || m_Wrapper.m_Player1ActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_Player1ActionsCallbackInterfaces.Add(instance);
-            @Jump.started += instance.OnJump;
-            @Jump.performed += instance.OnJump;
-            @Jump.canceled += instance.OnJump;
-            @Movement.started += instance.OnMovement;
-            @Movement.performed += instance.OnMovement;
-            @Movement.canceled += instance.OnMovement;
-        }
-
-        private void UnregisterCallbacks(IPlayer1Actions instance)
-        {
-            @Jump.started -= instance.OnJump;
-            @Jump.performed -= instance.OnJump;
-            @Jump.canceled -= instance.OnJump;
-            @Movement.started -= instance.OnMovement;
-            @Movement.performed -= instance.OnMovement;
-            @Movement.canceled -= instance.OnMovement;
-        }
-
-        public void RemoveCallbacks(IPlayer1Actions instance)
-        {
-            if (m_Wrapper.m_Player1ActionsCallbackInterfaces.Remove(instance))
-                UnregisterCallbacks(instance);
-        }
-
-        public void SetCallbacks(IPlayer1Actions instance)
-        {
-            foreach (var item in m_Wrapper.m_Player1ActionsCallbackInterfaces)
-                UnregisterCallbacks(item);
-            m_Wrapper.m_Player1ActionsCallbackInterfaces.Clear();
-            AddCallbacks(instance);
-        }
-    }
-    public Player1Actions @Player1 => new Player1Actions(this);
-
-    // Player2
-    private readonly InputActionMap m_Player2;
-    private List<IPlayer2Actions> m_Player2ActionsCallbackInterfaces = new List<IPlayer2Actions>();
-    private readonly InputAction m_Player2_Newaction;
-    public struct Player2Actions
-    {
-        private @Controls m_Wrapper;
-        public Player2Actions(@Controls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Newaction => m_Wrapper.m_Player2_Newaction;
-        public InputActionMap Get() { return m_Wrapper.m_Player2; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(Player2Actions set) { return set.Get(); }
-        public void AddCallbacks(IPlayer2Actions instance)
-        {
-            if (instance == null || m_Wrapper.m_Player2ActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_Player2ActionsCallbackInterfaces.Add(instance);
-            @Newaction.started += instance.OnNewaction;
-            @Newaction.performed += instance.OnNewaction;
-            @Newaction.canceled += instance.OnNewaction;
-        }
-
-        private void UnregisterCallbacks(IPlayer2Actions instance)
-        {
-            @Newaction.started -= instance.OnNewaction;
-            @Newaction.performed -= instance.OnNewaction;
-            @Newaction.canceled -= instance.OnNewaction;
-        }
-
-        public void RemoveCallbacks(IPlayer2Actions instance)
-        {
-            if (m_Wrapper.m_Player2ActionsCallbackInterfaces.Remove(instance))
-                UnregisterCallbacks(instance);
-        }
-
-        public void SetCallbacks(IPlayer2Actions instance)
-        {
-            foreach (var item in m_Wrapper.m_Player2ActionsCallbackInterfaces)
-                UnregisterCallbacks(item);
-            m_Wrapper.m_Player2ActionsCallbackInterfaces.Clear();
-            AddCallbacks(instance);
-        }
-    }
-    public Player2Actions @Player2 => new Player2Actions(this);
-
     // General
     private readonly InputActionMap m_General;
     private List<IGeneralActions> m_GeneralActionsCallbackInterfaces = new List<IGeneralActions>();
-    private readonly InputAction m_General_Newaction;
+    private readonly InputAction m_General_PauseMenu;
     public struct GeneralActions
     {
         private @Controls m_Wrapper;
         public GeneralActions(@Controls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Newaction => m_Wrapper.m_General_Newaction;
+        public InputAction @PauseMenu => m_Wrapper.m_General_PauseMenu;
         public InputActionMap Get() { return m_Wrapper.m_General; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -338,16 +407,16 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_GeneralActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_GeneralActionsCallbackInterfaces.Add(instance);
-            @Newaction.started += instance.OnNewaction;
-            @Newaction.performed += instance.OnNewaction;
-            @Newaction.canceled += instance.OnNewaction;
+            @PauseMenu.started += instance.OnPauseMenu;
+            @PauseMenu.performed += instance.OnPauseMenu;
+            @PauseMenu.canceled += instance.OnPauseMenu;
         }
 
         private void UnregisterCallbacks(IGeneralActions instance)
         {
-            @Newaction.started -= instance.OnNewaction;
-            @Newaction.performed -= instance.OnNewaction;
-            @Newaction.canceled -= instance.OnNewaction;
+            @PauseMenu.started -= instance.OnPauseMenu;
+            @PauseMenu.performed -= instance.OnPauseMenu;
+            @PauseMenu.canceled -= instance.OnPauseMenu;
         }
 
         public void RemoveCallbacks(IGeneralActions instance)
@@ -365,17 +434,180 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         }
     }
     public GeneralActions @General => new GeneralActions(this);
-    public interface IPlayer1Actions
+
+    // Player1Controls
+    private readonly InputActionMap m_Player1Controls;
+    private List<IPlayer1ControlsActions> m_Player1ControlsActionsCallbackInterfaces = new List<IPlayer1ControlsActions>();
+    private readonly InputAction m_Player1Controls_Forward;
+    private readonly InputAction m_Player1Controls_Jump;
+    private readonly InputAction m_Player1Controls_FastFall;
+    private readonly InputAction m_Player1Controls_UseItem;
+    private readonly InputAction m_Player1Controls_Respawn;
+    public struct Player1ControlsActions
     {
-        void OnJump(InputAction.CallbackContext context);
-        void OnMovement(InputAction.CallbackContext context);
+        private @Controls m_Wrapper;
+        public Player1ControlsActions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Forward => m_Wrapper.m_Player1Controls_Forward;
+        public InputAction @Jump => m_Wrapper.m_Player1Controls_Jump;
+        public InputAction @FastFall => m_Wrapper.m_Player1Controls_FastFall;
+        public InputAction @UseItem => m_Wrapper.m_Player1Controls_UseItem;
+        public InputAction @Respawn => m_Wrapper.m_Player1Controls_Respawn;
+        public InputActionMap Get() { return m_Wrapper.m_Player1Controls; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(Player1ControlsActions set) { return set.Get(); }
+        public void AddCallbacks(IPlayer1ControlsActions instance)
+        {
+            if (instance == null || m_Wrapper.m_Player1ControlsActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_Player1ControlsActionsCallbackInterfaces.Add(instance);
+            @Forward.started += instance.OnForward;
+            @Forward.performed += instance.OnForward;
+            @Forward.canceled += instance.OnForward;
+            @Jump.started += instance.OnJump;
+            @Jump.performed += instance.OnJump;
+            @Jump.canceled += instance.OnJump;
+            @FastFall.started += instance.OnFastFall;
+            @FastFall.performed += instance.OnFastFall;
+            @FastFall.canceled += instance.OnFastFall;
+            @UseItem.started += instance.OnUseItem;
+            @UseItem.performed += instance.OnUseItem;
+            @UseItem.canceled += instance.OnUseItem;
+            @Respawn.started += instance.OnRespawn;
+            @Respawn.performed += instance.OnRespawn;
+            @Respawn.canceled += instance.OnRespawn;
+        }
+
+        private void UnregisterCallbacks(IPlayer1ControlsActions instance)
+        {
+            @Forward.started -= instance.OnForward;
+            @Forward.performed -= instance.OnForward;
+            @Forward.canceled -= instance.OnForward;
+            @Jump.started -= instance.OnJump;
+            @Jump.performed -= instance.OnJump;
+            @Jump.canceled -= instance.OnJump;
+            @FastFall.started -= instance.OnFastFall;
+            @FastFall.performed -= instance.OnFastFall;
+            @FastFall.canceled -= instance.OnFastFall;
+            @UseItem.started -= instance.OnUseItem;
+            @UseItem.performed -= instance.OnUseItem;
+            @UseItem.canceled -= instance.OnUseItem;
+            @Respawn.started -= instance.OnRespawn;
+            @Respawn.performed -= instance.OnRespawn;
+            @Respawn.canceled -= instance.OnRespawn;
+        }
+
+        public void RemoveCallbacks(IPlayer1ControlsActions instance)
+        {
+            if (m_Wrapper.m_Player1ControlsActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IPlayer1ControlsActions instance)
+        {
+            foreach (var item in m_Wrapper.m_Player1ControlsActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_Player1ControlsActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
     }
-    public interface IPlayer2Actions
+    public Player1ControlsActions @Player1Controls => new Player1ControlsActions(this);
+
+    // Player2Controls
+    private readonly InputActionMap m_Player2Controls;
+    private List<IPlayer2ControlsActions> m_Player2ControlsActionsCallbackInterfaces = new List<IPlayer2ControlsActions>();
+    private readonly InputAction m_Player2Controls_Forward;
+    private readonly InputAction m_Player2Controls_Jump;
+    private readonly InputAction m_Player2Controls_FastFall;
+    private readonly InputAction m_Player2Controls_UseItem;
+    private readonly InputAction m_Player2Controls_Respawn;
+    public struct Player2ControlsActions
     {
-        void OnNewaction(InputAction.CallbackContext context);
+        private @Controls m_Wrapper;
+        public Player2ControlsActions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Forward => m_Wrapper.m_Player2Controls_Forward;
+        public InputAction @Jump => m_Wrapper.m_Player2Controls_Jump;
+        public InputAction @FastFall => m_Wrapper.m_Player2Controls_FastFall;
+        public InputAction @UseItem => m_Wrapper.m_Player2Controls_UseItem;
+        public InputAction @Respawn => m_Wrapper.m_Player2Controls_Respawn;
+        public InputActionMap Get() { return m_Wrapper.m_Player2Controls; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(Player2ControlsActions set) { return set.Get(); }
+        public void AddCallbacks(IPlayer2ControlsActions instance)
+        {
+            if (instance == null || m_Wrapper.m_Player2ControlsActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_Player2ControlsActionsCallbackInterfaces.Add(instance);
+            @Forward.started += instance.OnForward;
+            @Forward.performed += instance.OnForward;
+            @Forward.canceled += instance.OnForward;
+            @Jump.started += instance.OnJump;
+            @Jump.performed += instance.OnJump;
+            @Jump.canceled += instance.OnJump;
+            @FastFall.started += instance.OnFastFall;
+            @FastFall.performed += instance.OnFastFall;
+            @FastFall.canceled += instance.OnFastFall;
+            @UseItem.started += instance.OnUseItem;
+            @UseItem.performed += instance.OnUseItem;
+            @UseItem.canceled += instance.OnUseItem;
+            @Respawn.started += instance.OnRespawn;
+            @Respawn.performed += instance.OnRespawn;
+            @Respawn.canceled += instance.OnRespawn;
+        }
+
+        private void UnregisterCallbacks(IPlayer2ControlsActions instance)
+        {
+            @Forward.started -= instance.OnForward;
+            @Forward.performed -= instance.OnForward;
+            @Forward.canceled -= instance.OnForward;
+            @Jump.started -= instance.OnJump;
+            @Jump.performed -= instance.OnJump;
+            @Jump.canceled -= instance.OnJump;
+            @FastFall.started -= instance.OnFastFall;
+            @FastFall.performed -= instance.OnFastFall;
+            @FastFall.canceled -= instance.OnFastFall;
+            @UseItem.started -= instance.OnUseItem;
+            @UseItem.performed -= instance.OnUseItem;
+            @UseItem.canceled -= instance.OnUseItem;
+            @Respawn.started -= instance.OnRespawn;
+            @Respawn.performed -= instance.OnRespawn;
+            @Respawn.canceled -= instance.OnRespawn;
+        }
+
+        public void RemoveCallbacks(IPlayer2ControlsActions instance)
+        {
+            if (m_Wrapper.m_Player2ControlsActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IPlayer2ControlsActions instance)
+        {
+            foreach (var item in m_Wrapper.m_Player2ControlsActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_Player2ControlsActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
     }
+    public Player2ControlsActions @Player2Controls => new Player2ControlsActions(this);
     public interface IGeneralActions
     {
-        void OnNewaction(InputAction.CallbackContext context);
+        void OnPauseMenu(InputAction.CallbackContext context);
+    }
+    public interface IPlayer1ControlsActions
+    {
+        void OnForward(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
+        void OnFastFall(InputAction.CallbackContext context);
+        void OnUseItem(InputAction.CallbackContext context);
+        void OnRespawn(InputAction.CallbackContext context);
+    }
+    public interface IPlayer2ControlsActions
+    {
+        void OnForward(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
+        void OnFastFall(InputAction.CallbackContext context);
+        void OnUseItem(InputAction.CallbackContext context);
+        void OnRespawn(InputAction.CallbackContext context);
     }
 }
