@@ -8,6 +8,7 @@ public class PauseGame : MonoBehaviour
 {
     public static PauseGame Instance { get; private set; }
     public bool isGamePaused = false;
+    public GameObject PauseMenuHUD;
 
     [SerializeField]
     [Tooltip("Adds more time to the game being paused between exiting the pause menu and resuming play of the game")]
@@ -40,10 +41,15 @@ public class PauseGame : MonoBehaviour
 
     public void ToggleMenu(InputAction.CallbackContext context)
     {
-        Debug.Log("Callback context: "  + context +"\nGame was " + isGamePaused);
-        //if(!context.performed) { return; }
-        if(isGamePaused) { Resume();}
-        else { Pause(); }
+        if(!context.performed) { return; }
+        if(isGamePaused) { 
+            Resume();
+        }
+        else 
+        { 
+            Pause(); 
+        }
+        PauseMenuHUD.SetActive(isGamePaused);
     }
 
     private IEnumerator ResumeGameDelay()
