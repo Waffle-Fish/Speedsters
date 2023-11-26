@@ -56,8 +56,8 @@ public class PlayerController : MonoBehaviour
             playerControls.Player2Controls.Enable();
             playerControls.Player2Controls.Jump.performed += ActivateJump;
             playerControls.Player2Controls.FastFall.performed += FastFall;
-            playerControls.Player1Controls.UseItem.performed += useItem.UseItem;
-            playerControls.Player1Controls.Respawn.performed += life.Die;
+            playerControls.Player2Controls.UseItem.performed += useItem.UseItem;
+            playerControls.Player2Controls.Respawn.performed += life.Die;
         }
     }
 
