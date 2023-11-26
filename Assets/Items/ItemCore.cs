@@ -45,6 +45,7 @@ public abstract class ItemCore : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        itemSpriteRenderer = GetComponent<SpriteRenderer>();
         DeclareIdentities(other);
         ProcessPickup();
     }
@@ -89,9 +90,11 @@ public abstract class ItemCore : MonoBehaviour
         ItemCore userItem = user.GetComponent<PlayerUseItem>().item;
         if(!userItem)
         {
-            GetComponent<SpriteRenderer>().enabled = false;
+            itemSpriteRenderer.enabled = false;
             GetComponent<BoxCollider2D>().enabled = false;
             user.GetComponent<PlayerUseItem>().item = this;
+            user.GetComponent<PlayerUseItem>().itemSprite = itemSpriteRenderer.sprite;
+            user.GetComponent<PlayerUseItem>().DisplayItemSprite();
         }
     }
 
