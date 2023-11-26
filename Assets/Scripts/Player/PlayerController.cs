@@ -23,7 +23,6 @@ public class PlayerController : MonoBehaviour
 
     private BoxCollider2D characterCollider;
     private Rigidbody2D rb;
-    private PlayerInput playerInput;
     private Controls playerControls;
     private int jumpCount = 2;
     private Vector2 boxOrigin;
@@ -38,10 +37,8 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         characterCollider = GetComponent<BoxCollider2D>();
-        playerInput = GetComponent<PlayerInput>();
 
         playerControls = new();
-        playerControls.General.Enable();
         if(gameObject.CompareTag("Player1"))
         {
             playerControls.Player1Controls.Enable();
@@ -54,8 +51,6 @@ public class PlayerController : MonoBehaviour
             playerControls.Player2Controls.Jump.performed += ActivateJump;
             playerControls.Player2Controls.FastFall.performed += FastFall;
         }
-        
-        //playerControls.General.PauseMenu.performed += PauseGame.Instance.ToggleMenu;
     }
 
     private void FixedUpdate()

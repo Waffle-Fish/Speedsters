@@ -14,11 +14,15 @@ public class PauseGame : MonoBehaviour
     private float resumeDelayTime = 0f;
     float prevTimeScale = 0f;
 
+    private Controls playerControls;
 
     private void Awake()
     {
         if (Instance == null) { Instance = this; }
         else { Destroy(gameObject); }
+        playerControls = new();
+        playerControls.General.Enable();
+        playerControls.General.PauseMenu.performed += ToggleMenu; 
     }
     public void Pause()
     {
@@ -36,6 +40,8 @@ public class PauseGame : MonoBehaviour
 
     public void ToggleMenu(InputAction.CallbackContext context)
     {
+        Debug.Log("Callback context: "  + context +"\nGame was " + isGamePaused);
+        //if(!context.performed) { return; }
         if(isGamePaused) { Resume();}
         else { Pause(); }
     }
