@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Controls playerControls;
     private PlayerUseItem useItem;
+    private PlayerLife life;
     private int jumpCount = 2;
     private Vector2 boxOrigin;
     private int detectTimer = 3;
@@ -39,6 +40,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         characterCollider = GetComponent<BoxCollider2D>();
         useItem = GetComponent<PlayerUseItem>();
+        life = GetComponent<PlayerLife>();
 
         playerControls = new();
         if(gameObject.CompareTag("Player1"))
@@ -47,12 +49,15 @@ public class PlayerController : MonoBehaviour
             playerControls.Player1Controls.Jump.performed += ActivateJump;
             playerControls.Player1Controls.FastFall.performed += FastFall;
             playerControls.Player1Controls.UseItem.performed += useItem.UseItem;
+            playerControls.Player1Controls.Respawn.performed += life.Die;
         }
         else
         {
             playerControls.Player2Controls.Enable();
             playerControls.Player2Controls.Jump.performed += ActivateJump;
             playerControls.Player2Controls.FastFall.performed += FastFall;
+            playerControls.Player1Controls.UseItem.performed += useItem.UseItem;
+            playerControls.Player1Controls.Respawn.performed += life.Die;
         }
     }
 

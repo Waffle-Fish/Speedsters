@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 //Script that controls damage related hitbox operations
 public class PlayerLife : MonoBehaviour
@@ -48,5 +49,10 @@ public class PlayerLife : MonoBehaviour
             transform.position = respawnPoint;
             health = 100;
         }
+    }
+
+    public void Die(InputAction.CallbackContext context)
+    {
+        takeDamage(health);
     }
 }
