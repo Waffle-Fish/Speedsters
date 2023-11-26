@@ -42,35 +42,32 @@ public abstract class ItemCore : MonoBehaviour
     #endregion
 
     // Don't GetComponent<>() in start as it doesn't actually grab that itemCore child's component
-    private void Start()
-    {
-        // TODO: Display item
-    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        itemSpriteRenderer = GetComponent<SpriteRenderer>();
-        itemSpriteRenderer.enabled = false;
-        if (other.gameObject.CompareTag("Player1") || other.gameObject.CompareTag("Player2"))
-        {
-            if(other.gameObject.CompareTag("Player1"))
-            {
-                user = Player1Master.Instance.gameObject;
-                enemy = Player2Master.Instance.gameObject;
-                userScreen = TopScreenUIManager.Instance.gameObject;
-                enemyScreen = BottomScreenUIManager.Instance.gameObject;
-            }
-            else
-            {
-                user = Player2Master.Instance.gameObject;
-                enemy = Player1Master.Instance.gameObject;
-                userScreen = BottomScreenUIManager.Instance.gameObject;
-                enemyScreen = TopScreenUIManager.Instance.gameObject;
-            }
-            InitializeUserEnemy();
-            ProcessCollision();
-        }
+        DeclareIdentities(other);
+        ProcessPickup();
     }
+
+    private void DeclareIdentities(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player1"))
+        {
+            user = Player1Master.Instance.gameObject;
+            enemy = Player2Master.Instance.gameObject;
+            userScreen = TopScreenUIManager.Instance.gameObject;
+            enemyScreen = BottomScreenUIManager.Instance.gameObject;
+        }
+        else
+        {
+            user = Player2Master.Instance.gameObject;
+            enemy = Player1Master.Instance.gameObject;
+            userScreen = BottomScreenUIManager.Instance.gameObject;
+            enemyScreen = TopScreenUIManager.Instance.gameObject;
+        }
+        InitializeUserEnemy();
+    }
+
     private void InitializeUserEnemy()
     {
         userCamera = user.GetComponentInChildren<Camera>();
@@ -87,17 +84,18 @@ public abstract class ItemCore : MonoBehaviour
         enemySpriteRenderer = enemy.GetComponent<SpriteRenderer>();
     }
 
-    private void ProcessCollision()
+    private void ProcessPickup()
     {
-        itemSpriteRenderer.enabled = false;
-
-        // TODO:
-        //      IF slot full, auto use item in slot
-        //      Put item into item slot
-        //      This will need to call UI
+        ItemCore userItem = user.GetComponent<PlayerUseItem>().item;
+        if(!userItem)
+        {
+            GetComponent<SpriteRenderer>().enabled = false;
+            GetComponent<BoxCollider2D>().enabled = false;
+            user.GetComponent<PlayerUseItem>().item = this;
+        }
     }
 
-    public IEnumerator ActivateItem()
+    public IEnumerator DelayEffect()
     {
         yield return new WaitForSeconds(effectDelay);
         StartCoroutine(ActivateEffect());

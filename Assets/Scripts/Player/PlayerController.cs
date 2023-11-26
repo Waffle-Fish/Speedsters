@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private BoxCollider2D characterCollider;
     private Rigidbody2D rb;
     private Controls playerControls;
+    private PlayerUseItem useItem;
     private int jumpCount = 2;
     private Vector2 boxOrigin;
     private int detectTimer = 3;
@@ -37,6 +38,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         characterCollider = GetComponent<BoxCollider2D>();
+        useItem = GetComponent<PlayerUseItem>();
 
         playerControls = new();
         if(gameObject.CompareTag("Player1"))
@@ -44,6 +46,7 @@ public class PlayerController : MonoBehaviour
             playerControls.Player1Controls.Enable();
             playerControls.Player1Controls.Jump.performed += ActivateJump;
             playerControls.Player1Controls.FastFall.performed += FastFall;
+            playerControls.Player1Controls.UseItem.performed += useItem.UseItem;
         }
         else
         {

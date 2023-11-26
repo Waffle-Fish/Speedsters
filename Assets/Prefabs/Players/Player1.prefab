@@ -94,9 +94,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2871791218540232346}
   - component: {fileID: 7328047949552000568}
-  - component: {fileID: 6335608294535841035}
   - component: {fileID: 4570394089763232308}
+  - component: {fileID: 6335608294535841035}
   - component: {fileID: 1060450866450924132}
+  - component: {fileID: 8201902442338208266}
   - component: {fileID: 801524398096248930}
   - component: {fileID: 835123735019686424}
   - component: {fileID: 6898302102855891402}
@@ -176,6 +177,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4570394089763232308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2358722263303137472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17e8626211caed64f8dc03aca0262158, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6335608294535841035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,18 +202,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
---- !u!114 &4570394089763232308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2358722263303137472}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17e8626211caed64f8dc03aca0262158, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1060450866450924132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,6 +221,18 @@ MonoBehaviour:
   dJForce: 5
   fastFallSpeed: 7
   finished: 0
+--- !u!114 &8201902442338208266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2358722263303137472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e65968a5718b9c4d8ada2d4ff591c91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &801524398096248930
 Rigidbody2D:
   serializedVersion: 4
