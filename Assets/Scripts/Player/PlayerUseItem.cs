@@ -12,10 +12,6 @@ public class PlayerUseItem : MonoBehaviour
     public Image itemToDisplay;
 
     private Color transparent = new(255,255,255,0);
-    private void Start()
-    {
-        DisplayItemSprite();
-    }
     public void UseItem(InputAction.CallbackContext context)
     {
         if(!context.performed || !item) { return; }
