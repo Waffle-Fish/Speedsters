@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEditor.Callbacks;
@@ -11,27 +12,27 @@ using UnityEngine.Rendering;
 public class PlayerController : MonoBehaviour
 {
     [Tooltip("Buffer time between jumps to prevent spamming press")]
-    [SerializeField]
-    private Vector2 groundDetectSize;
-
+    [SerializeField] private Vector2 groundDetectSize;
     [SerializeField] Animator anim;
+
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
     public float dJForce = 9;
     public float fastFallSpeed = 10f;
     public bool finished = false;
 
-    
     private BoxCollider2D characterCollider;
     private Rigidbody2D rb;
     private PlayerInput playerInput;
     private Controls playerControls;
     private int jumpCount = 2;
-    private LayerMask GroundLayer => LayerMask.GetMask("Ground");
     private Vector2 boxOrigin;
     private int detectTimer = 3;
-    private bool justJump = false;
     private bool onGround = true;
+    private bool fastFalling = false;
+
+    private LayerMask GroundLayer => LayerMask.GetMask("Ground");
+    private bool IsJumping => !onGround;
 
     private void Awake()
     {
@@ -59,28 +60,31 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (PauseGame.Instance.isGamePaused || finished) { return; } //If game is paused, don't register movement
-        
+        if (PauseGame.Instance.isGamePaused || finished) { return; }
         float moveInpVal = gameObject.CompareTag("Player1") ? playerControls.Player1Controls.Forward.ReadValue<float>() : playerControls.Player2Controls.Forward.ReadValue<float>();
         rb.velocity = new Vector2(moveInpVal * moveSpeed, rb.velocity.y);
         FlipCharacter(moveInpVal);
         DetectGround();
-        anim.SetFloat("Speed", rb.velocity.x);
+        anim.SetFloat("XVel", rb.velocity.x);
+        anim.SetFloat("YVel", rb.velocity.y);
+        anim.SetBool("Jumping", IsJumping);
+        anim.SetBool("FastFalling", fastFalling);
+        anim.SetBool("OnGround", onGround);
     }
 
     private void DetectGround()
     {
-        if (justJump && detectTimer > 0)
+        if (IsJumping && detectTimer > 0)
         {
             detectTimer--;
             return;
-        }
-        justJump = false; 
+        } 
         detectTimer = 3;
         boxOrigin = new(transform.position.x, transform.position.y - characterCollider.size.y / 2f);
         Collider2D groundDetect = Physics2D.OverlapBox(boxOrigin, groundDetectSize, 0f, GroundLayer);
         if (groundDetect && groundDetect.CompareTag("Ground")) { 
             jumpCount = 2;
+            fastFalling = false;
             onGround = true;
         }
     }
@@ -100,8 +104,8 @@ public class PlayerController : MonoBehaviour
     private void ActivateJump(InputAction.CallbackContext context)
     {
         if(!(context.performed && jumpCount > 0)) { return; }
-        justJump = true;
         onGround = false;
+        fastFalling = false;
         Vector2 f = (jumpCount == 2) ? Vector2.up *  jumpForce : Vector2.up *  dJForce;
         rb.AddForce(f, ForceMode2D.Impulse);
         jumpCount--;
@@ -111,9 +115,10 @@ public class PlayerController : MonoBehaviour
     private void FastFall(InputAction.CallbackContext context)
     {
         if(!context.performed) { return; }
-        if (!onGround)
+        if(!onGround)
         {
            rb.velocity = new Vector2(rb.velocity.x,-fastFallSpeed);
+           fastFalling = true;
         }
     }
 
