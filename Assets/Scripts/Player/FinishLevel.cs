@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 //Script for finish line that stops timer and player, sends to winEvent()
 public class FinishLevel : MonoBehaviour
@@ -37,10 +38,13 @@ public class FinishLevel : MonoBehaviour
         if (Time_UI.Instance.GetWinner() == '1')
         {
             Debug.Log("Winner is Player 1 with a time of " + Time_UI.Instance.GetPlayer1Time() + "!");
+            SceneManager.LoadScene("victory scene");
+
         }
         else
         {
             Debug.Log("Winner is Player 2 with a time of " + Time_UI.Instance.GetPlayer2Time() + "!");
+            SceneManager.LoadScene("victory scene");
         }
         StartCoroutine(PostLevelProcess.Instance.StartProcess());
     }
