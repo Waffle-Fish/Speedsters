@@ -59753,7 +59753,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2406077558296948706, guid: cd1df1a9fdceab8439ab60b33f8c06b5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4395681992446439470, guid: cd1df1a9fdceab8439ab60b33f8c06b5, type: 3}
       propertyPath: far clip plane
@@ -60102,7 +60102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 790573704829447765, guid: 9183daea2a59fce45a741556182d5bd1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1202893677426158983, guid: 9183daea2a59fce45a741556182d5bd1, type: 3}
       propertyPath: screenTimeLength
