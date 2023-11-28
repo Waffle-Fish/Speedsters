@@ -17,7 +17,7 @@ public class CharacterSelectMenu : MonoBehaviour
         else { Destroy(gameObject); }
     }
 
-    private void PlayGame()
+    public void PlayGame()
     {
         Debug.Log("Lets play!");
         if (sceneIndex >= SceneManager.sceneCountInBuildSettings) { Debug.LogError("Trying to load a scene outside the current number of scenes in the build settings"); }
