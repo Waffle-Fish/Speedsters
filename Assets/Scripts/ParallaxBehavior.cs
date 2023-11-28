@@ -12,6 +12,7 @@ public class ParallaxBehavior : MonoBehaviour
     [SerializeField]
     float yOffest = 0;
     
+    
     Vector2 startPosition;
     float startZ;
 
