@@ -22,6 +22,14 @@ public class MovingPlatform : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, waypoints[currentWaypointIndex].transform.position, Time.deltaTime * speed);
     }
 
+    private void OnDrawGizmos()
+    {
+
+        Gizmos.DrawLine(transform.position, waypoints[0].transform.position);
+        Gizmos.DrawLine(transform.position, waypoints[1].transform.position);
+
+    }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
