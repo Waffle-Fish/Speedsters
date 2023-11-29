@@ -11,6 +11,8 @@ TagManager:
   - InstaObst
   - SpawnPoint
   - Projectile
+  - RandomDmg
+  - RandomBox
   layers:
   - Default
   - TransparentFX

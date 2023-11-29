@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -5,7 +6,7 @@ using UnityEngine;
 
 public abstract class ItemCore : MonoBehaviour
 {
-    public Item item;
+    //public Item item;
     [Tooltip("In seconds, How long it takes before the effect activates. Choose 0 for no delay. Can be used for big spells that have long animation times. ")]
     public float effectDelay = 0f;
     [Tooltip("In seconds, How long the effect lasts. Choose 0 for no duration")]
@@ -13,7 +14,6 @@ public abstract class ItemCore : MonoBehaviour
     public abstract IEnumerator ActivateEffect();
 
     protected SpriteRenderer itemSpriteRenderer;
-
     protected GameObject user;
     protected GameObject enemy;
     protected Transform userTransform;
@@ -41,16 +41,21 @@ public abstract class ItemCore : MonoBehaviour
     protected void ResetTimer() { timer = 0f; }
     #endregion
 
+    #region RandomBox
+    protected virtual void GetRandomEffect(Collider2D other){ return; }
+
+    #endregion
+
     // Don't GetComponent<>() in start as it doesn't actually grab that itemCore child's component
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        itemSpriteRenderer = GetComponent<SpriteRenderer>();
         DeclareIdentities(other);
-        ProcessPickup();
+        itemSpriteRenderer = GetComponent<SpriteRenderer>();
+        ProcessPickup(other);
     }
 
-    private void DeclareIdentities(Collider2D other)
+    public void DeclareIdentities(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player1"))
         {
@@ -85,16 +90,24 @@ public abstract class ItemCore : MonoBehaviour
         enemySpriteRenderer = enemy.GetComponent<SpriteRenderer>();
     }
 
-    private void ProcessPickup()
+    private void ProcessPickup(Collider2D other)
     {
-        ItemCore userItem = user.GetComponent<PlayerUseItem>().item;
+        PlayerUseItem userPUI = user.GetComponent<PlayerUseItem>();
+        ItemCore userItem = userPUI.item;
+
         if(!userItem)
         {
             itemSpriteRenderer.enabled = false;
             GetComponent<BoxCollider2D>().enabled = false;
-            user.GetComponent<PlayerUseItem>().item = this;
-            user.GetComponent<PlayerUseItem>().itemSprite = itemSpriteRenderer.sprite;
-            user.GetComponent<PlayerUseItem>().DisplayItemSprite();
+            Debug.Log("Tag: " + this.tag);
+            if(this.CompareTag("RandomBox"))
+            {
+                GetRandomEffect(other);
+                InitializeUserEnemy();
+            }
+            userPUI.item = this;
+            userPUI.itemSprite = itemSpriteRenderer.sprite;
+            userPUI.DisplayItemSprite();
         }
     }
 
