@@ -5,9 +5,11 @@ using UnityEngine;
 public class MovingPlatform : MonoBehaviour
 {
     [SerializeField] private GameObject[] waypoints;
+    [SerializeField] private float speed = 2f;
+    private Transform originalTransform;
     private int currentWaypointIndex = 0;
 
-    [SerializeField] private float speed = 2f;
+    
 
     private void Update()
     {
@@ -33,17 +35,12 @@ public class MovingPlatform : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2")
-        {
-            collision.gameObject.transform.SetParent(transform);
-        }
+        originalTransform = collision.transform.parent;
+        collision.gameObject.transform.SetParent(transform);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2")
-        {
-            collision.gameObject.transform.SetParent(null);
-        }
+        collision.gameObject.transform.SetParent(originalTransform);
     }
 }
