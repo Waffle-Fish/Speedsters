@@ -110,6 +110,7 @@ public class PlayerController : MonoBehaviour
         onGround = false;
         fastFalling = false;
         Vector2 f = (jumpCount == 2) ? Vector2.up *  jumpForce : Vector2.up *  dJForce;
+        if(rb.velocity.y <= 0f) {rb.velocity = new(rb.velocity.x, 0f);}
         rb.AddForce(f, ForceMode2D.Impulse);
         jumpCount--;
         //Debug.Log("Remaining Jumps: " + jumpCount);
