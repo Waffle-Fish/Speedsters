@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
   playerTrans: {fileID: 0}
-  yOffest: 7
+  yOffest: 5
 --- !u!1 &708738694903675417
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,7 +238,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
   playerTrans: {fileID: 0}
-  yOffest: 7
+  yOffest: 5
 --- !u!1 &1416770107735833471
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,7 +422,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
   playerTrans: {fileID: 0}
-  yOffest: 7
+  yOffest: 5
 --- !u!1 &2223770613807158689
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,7 +522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
   playerTrans: {fileID: 0}
-  yOffest: 7
+  yOffest: 5
 --- !u!1 &5539867507679944801
 GameObject:
   m_ObjectHideFlags: 0
@@ -622,7 +622,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
   playerTrans: {fileID: 0}
-  yOffest: 7
+  yOffest: 5
 --- !u!1 &8344918858410861800
 GameObject:
   m_ObjectHideFlags: 0
@@ -722,7 +722,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
   playerTrans: {fileID: 0}
-  yOffest: 7
+  yOffest: 5
 --- !u!1 &8386550490566410380
 GameObject:
   m_ObjectHideFlags: 0
@@ -822,4 +822,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
   playerTrans: {fileID: 0}
-  yOffest: 7
+  yOffest: 5
