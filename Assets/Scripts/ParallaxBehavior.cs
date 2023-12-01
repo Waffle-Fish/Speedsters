@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
+
 //using System.Numerics;
 using UnityEngine;
 
 public class ParallaxBehavior : MonoBehaviour
 {
     [SerializeField]
-    Camera cam;
+    CinemachineVirtualCamera cam;
     [SerializeField]
     Transform playerTrans;
     [SerializeField]
@@ -18,7 +20,7 @@ public class ParallaxBehavior : MonoBehaviour
 
     Vector2 Travel => new(cam.transform.position.x - startPosition.x, cam.transform.position.y + yOffest - startPosition.y);
     float DistanceFromSubject => transform.position.z - playerTrans.position.z;
-    float ClippingPlane => (cam.transform.position.z + (DistanceFromSubject > 0 ? cam.farClipPlane : cam.nearClipPlane));
+    float ClippingPlane => cam.transform.position.z + (DistanceFromSubject > 0 ? cam.m_Lens.FarClipPlane : cam.m_Lens.NearClipPlane);
     float ParrallaxFactor => Mathf.Abs(DistanceFromSubject) / ClippingPlane;
 
     void Start()
