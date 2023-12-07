@@ -12,6 +12,7 @@ TagManager:
   - SpawnPoint
   - Projectile
   - RandomDmg
+  - RandomBox
   layers:
   - Default
   - TransparentFX

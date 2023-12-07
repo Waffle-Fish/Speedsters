@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 
 // TODO:
+// Change prefab so the object already has its children and is not generated during runtime
 // Fix Egg Behavior Hitting Player
 // Fix Destruction of Instantiated Eggs and Cloud
 // Create Splatter effect on sceen
@@ -57,6 +58,7 @@ public class EggRainEffect : ItemCore
         while (timer <= effectDuration)
         {
             cloud.GetComponentInParent<Transform>().position = new Vector2(enemy.transform.position.x, enemy.transform.position.y + cloudHeight);
+            UnityEngine.Debug.Log("Cloud parent pos: " + cloud.GetComponentInParent<Transform>());
             if (timer > (eggCounter + 1) * effectDuration / totalEggSpawn)
             {
                 eggList[eggCounter].SetActive(true);
