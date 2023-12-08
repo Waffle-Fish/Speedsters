@@ -16,6 +16,7 @@ public class PostLevelProcess : MonoBehaviour
     public UnityEngine.UI.Image winnerImg;
     public UnityEngine.UI.Image loserImg;
     public static PostLevelProcess Instance { get; private set; }
+    
     List<RectTransform> rectTransforms = new();
     private void Awake()
     {

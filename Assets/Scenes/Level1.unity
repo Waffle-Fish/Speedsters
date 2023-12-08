@@ -50304,7 +50304,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 496124208}
         m_TargetAssemblyTypeName: PauseGame, Assembly-CSharp
         m_MethodName: Resume
         m_Mode: 1
@@ -51394,7 +51394,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!223 &7743707846419382768
 Canvas:
   m_ObjectHideFlags: 0
@@ -51776,6 +51776,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9723fd5732047314d9e95bbed2f9ea14, type: 3}
+--- !u!1 &8496824692888714764 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5184485225833303170, guid: 9723fd5732047314d9e95bbed2f9ea14, type: 3}
+  m_PrefabInstance: {fileID: 8496824692888714763}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8559526779072763887
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51898,6 +51903,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4331570266319322715, guid: ec31d42b1f7ed494590fdbc081fbcdc2, type: 3}
+      propertyPath: PauseMenuHUD
+      value: 
+      objectReference: {fileID: 8496824692888714764}
     - target: {fileID: 5216916509175039649, guid: ec31d42b1f7ed494590fdbc081fbcdc2, type: 3}
       propertyPath: m_RootOrder
       value: 1

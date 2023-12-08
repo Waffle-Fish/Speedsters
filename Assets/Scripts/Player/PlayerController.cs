@@ -59,6 +59,8 @@ public class PlayerController : MonoBehaviour
             playerControls.Player2Controls.UseItem.performed += useItem.UseItem;
             playerControls.Player2Controls.Respawn.performed += life.Die;
         }
+        playerControls.General.Enable();
+        playerControls.General.PauseMenu.performed += PauseGame.Instance.ToggleMenu;
     }
 
     private void FixedUpdate()
