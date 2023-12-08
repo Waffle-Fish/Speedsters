@@ -104,12 +104,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Speedsters!
-
-    [Insert Ads Here]'
+  m_text: Speedsters!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: eae996fc47544744c80e805808930ef0, type: 2}
+  m_sharedMaterial: {fileID: 2514147337879589772, guid: eae996fc47544744c80e805808930ef0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -133,8 +131,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -149,7 +147,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -496,6 +494,58 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 373412989959475, guid: 8e431a9a59f0a7f4d94b5f2601b0f972, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1223000200433571388, guid: 8e431a9a59f0a7f4d94b5f2601b0f972, type: 3}
+      propertyPath: m_fontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1223000200433571388, guid: 8e431a9a59f0a7f4d94b5f2601b0f972, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: eae996fc47544744c80e805808930ef0, type: 2}
+    - target: {fileID: 1223000200433571388, guid: 8e431a9a59f0a7f4d94b5f2601b0f972, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1223000200433571388, guid: 8e431a9a59f0a7f4d94b5f2601b0f972, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2514147337879589772, guid: eae996fc47544744c80e805808930ef0, type: 2}
+    - target: {fileID: 1223000200433571388, guid: 8e431a9a59f0a7f4d94b5f2601b0f972, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720788651337100517, guid: 8e431a9a59f0a7f4d94b5f2601b0f972, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: eae996fc47544744c80e805808930ef0, type: 2}
+    - target: {fileID: 2720788651337100517, guid: 8e431a9a59f0a7f4d94b5f2601b0f972, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2514147337879589772, guid: eae996fc47544744c80e805808930ef0, type: 2}
+    - target: {fileID: 2720788651337100517, guid: 8e431a9a59f0a7f4d94b5f2601b0f972, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8096164860706085339, guid: 8e431a9a59f0a7f4d94b5f2601b0f972, type: 3}
+      propertyPath: m_fontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8096164860706085339, guid: 8e431a9a59f0a7f4d94b5f2601b0f972, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: eae996fc47544744c80e805808930ef0, type: 2}
+    - target: {fileID: 8096164860706085339, guid: 8e431a9a59f0a7f4d94b5f2601b0f972, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8096164860706085339, guid: 8e431a9a59f0a7f4d94b5f2601b0f972, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2514147337879589772, guid: eae996fc47544744c80e805808930ef0, type: 2}
+    - target: {fileID: 8096164860706085339, guid: 8e431a9a59f0a7f4d94b5f2601b0f972, type: 3}
+      propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9176795425025686498, guid: 8e431a9a59f0a7f4d94b5f2601b0f972, type: 3}

@@ -1,9 +1,10 @@
 using UnityEngine;
+//using UnityEngine.TestTools.Constraints;
 
 //Script for finish line that stops timer and player, sends to winEvent()
 public class FinishLevel : MonoBehaviour
 {   
-
+    public bool singlePlayer = false;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player1"))
@@ -17,7 +18,10 @@ public class FinishLevel : MonoBehaviour
             PlayerStop(collision.gameObject.GetComponent<PlayerController>());
 
         }
-
+        if(singlePlayer && Time_UI.Instance.isP1Finished)
+        {
+            WinEvent();
+        }
         if (Time_UI.Instance.isP1Finished && Time_UI.Instance.isP2Finished)
         {
             WinEvent();

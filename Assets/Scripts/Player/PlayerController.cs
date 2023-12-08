@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
         if (PauseGame.Instance.isGamePaused || finished) { return; }
         float moveInpVal = gameObject.CompareTag("Player1") ? playerControls.Player1Controls.Forward.ReadValue<float>() : playerControls.Player2Controls.Forward.ReadValue<float>();
         rb.velocity = new Vector2(moveInpVal * moveSpeed, rb.velocity.y);
-        Debug.Log("Current moveSpeed: " + moveSpeed);
+        //  Debug.Log("Current moveSpeed: " + moveSpeed);
         FlipCharacter(moveInpVal);
         DetectGround();
         anim.SetFloat("XVel", rb.velocity.x);
