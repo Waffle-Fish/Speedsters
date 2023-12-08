@@ -3425,7 +3425,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8424319866554170204, guid: 489cd7c8c7041f245a82aa0819c0ac45, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.777779
+      value: 16.775229
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17639,7 +17639,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5897298058430131719, guid: 9016735bf210e5f45a8674dce4f27b4a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.777779
+      value: 16.775229
       objectReference: {fileID: 0}
     - target: {fileID: 6034620032149237062, guid: 9016735bf210e5f45a8674dce4f27b4a, type: 3}
       propertyPath: m_Follow
@@ -53737,7 +53737,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!223 &7743707846419382768
 Canvas:
   m_ObjectHideFlags: 0
@@ -53944,7 +53944,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 790573704829447765, guid: 9183daea2a59fce45a741556182d5bd1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1202893677426158983, guid: 9183daea2a59fce45a741556182d5bd1, type: 3}
       propertyPath: screenTimeLength
