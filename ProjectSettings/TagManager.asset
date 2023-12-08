@@ -13,6 +13,8 @@ TagManager:
   - Projectile
   - RandomDmg
   - RandomBox
+  - Winner
+  - Loser
   layers:
   - Default
   - TransparentFX

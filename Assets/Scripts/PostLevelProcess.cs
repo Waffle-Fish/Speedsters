@@ -9,6 +9,7 @@ public class PostLevelProcess : MonoBehaviour
     float initialDelay = 0f;
     [SerializeField]
     GameObject PlayerTextGO;
+    [SerializeField]
 
     public static PostLevelProcess Instance { get; private set; }
     List<RectTransform> rectTransforms = new();
