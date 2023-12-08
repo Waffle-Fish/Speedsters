@@ -4925,6 +4925,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1448424730}
     - target: {fileID: 2920904187521236924, guid: 5d6b7c4a675861041b0b5bf9a362ca2d, type: 3}
+      propertyPath: yOffest
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2920904187521236924, guid: 5d6b7c4a675861041b0b5bf9a362ca2d, type: 3}
       propertyPath: playerTrans
       value: 
       objectReference: {fileID: 1720382061}
@@ -4932,6 +4936,10 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 1448424730}
+    - target: {fileID: 3224816347917665230, guid: 5d6b7c4a675861041b0b5bf9a362ca2d, type: 3}
+      propertyPath: yOffest
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3224816347917665230, guid: 5d6b7c4a675861041b0b5bf9a362ca2d, type: 3}
       propertyPath: playerTrans
       value: 
@@ -4940,6 +4948,10 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 1448424730}
+    - target: {fileID: 4293365584717242656, guid: 5d6b7c4a675861041b0b5bf9a362ca2d, type: 3}
+      propertyPath: yOffest
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 4293365584717242656, guid: 5d6b7c4a675861041b0b5bf9a362ca2d, type: 3}
       propertyPath: playerTrans
       value: 
@@ -4948,6 +4960,10 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 1448424730}
+    - target: {fileID: 8321015375514993364, guid: 5d6b7c4a675861041b0b5bf9a362ca2d, type: 3}
+      propertyPath: yOffest
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8321015375514993364, guid: 5d6b7c4a675861041b0b5bf9a362ca2d, type: 3}
       propertyPath: playerTrans
       value: 
@@ -4956,6 +4972,10 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 1448424730}
+    - target: {fileID: 8424548433184721517, guid: 5d6b7c4a675861041b0b5bf9a362ca2d, type: 3}
+      propertyPath: yOffest
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 8424548433184721517, guid: 5d6b7c4a675861041b0b5bf9a362ca2d, type: 3}
       propertyPath: playerTrans
       value: 
@@ -4964,6 +4984,10 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 1448424730}
+    - target: {fileID: 8466415039005698982, guid: 5d6b7c4a675861041b0b5bf9a362ca2d, type: 3}
+      propertyPath: yOffest
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8466415039005698982, guid: 5d6b7c4a675861041b0b5bf9a362ca2d, type: 3}
       propertyPath: playerTrans
       value: 
@@ -5265,7 +5289,7 @@ PrefabInstance:
       objectReference: {fileID: 748576734}
     - target: {fileID: 8321015375514993364, guid: 5d6b7c4a675861041b0b5bf9a362ca2d, type: 3}
       propertyPath: yOffest
-      value: 20
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8321015375514993364, guid: 5d6b7c4a675861041b0b5bf9a362ca2d, type: 3}
       propertyPath: playerTrans
@@ -16411,7 +16435,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1560433054
 RectTransform:
   m_ObjectHideFlags: 0
