@@ -51394,7 +51394,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!223 &7743707846419382768
 Canvas:
   m_ObjectHideFlags: 0
@@ -51795,7 +51795,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 790573704829447765, guid: 9183daea2a59fce45a741556182d5bd1, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1202893677426158983, guid: 9183daea2a59fce45a741556182d5bd1, type: 3}
       propertyPath: screenTimeLength
