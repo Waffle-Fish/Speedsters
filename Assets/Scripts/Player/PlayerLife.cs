@@ -19,10 +19,10 @@ public class PlayerLife : MonoBehaviour
     {
         /* Any trigger object that is tagged "SpawnPoint" will update the respawn point
            Prefab created for the trigger.                                              */
-        if (collision.tag == "SpawnPoint")
+        if (collision.CompareTag("SpawnPoint"))
         {
             respawnPoint = transform.position;
-            Debug.Log("Spawn Point Updated");
+            //Debug.Log("Spawn Point Updated");
         }
     }
 
