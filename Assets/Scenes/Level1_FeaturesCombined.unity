@@ -5845,14 +5845,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 705028989}
     m_Modifications:
-    - target: {fileID: 913540976554934779, guid: 489cd7c8c7041f245a82aa0819c0ac45, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 913540976554934779, guid: 489cd7c8c7041f245a82aa0819c0ac45, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.5
-      objectReference: {fileID: 0}
     - target: {fileID: 1301959229049204262, guid: 489cd7c8c7041f245a82aa0819c0ac45, type: 3}
       propertyPath: m_Name
       value: P1_CameraConfig
@@ -5904,10 +5896,6 @@ PrefabInstance:
     - target: {fileID: 6765718518009683237, guid: 489cd7c8c7041f245a82aa0819c0ac45, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8424319866554170204, guid: 489cd7c8c7041f245a82aa0819c0ac45, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 16.772152
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -33705,7 +33693,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5897298058430131719, guid: 9016735bf210e5f45a8674dce4f27b4a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.772152
+      value: 16.761194
       objectReference: {fileID: 0}
     - target: {fileID: 6034620032149237062, guid: 9016735bf210e5f45a8674dce4f27b4a, type: 3}
       propertyPath: m_Follow
@@ -96578,30 +96566,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 705028989}
     m_Modifications:
-    - target: {fileID: 1060450866450924132, guid: f372ab18ad2cc8848818da260800a7c1, type: 3}
-      propertyPath: dJForce
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1060450866450924132, guid: f372ab18ad2cc8848818da260800a7c1, type: 3}
-      propertyPath: jumpForce
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1060450866450924132, guid: f372ab18ad2cc8848818da260800a7c1, type: 3}
-      propertyPath: fallJumpForce
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1060450866450924132, guid: f372ab18ad2cc8848818da260800a7c1, type: 3}
-      propertyPath: fastFallSpeed
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1060450866450924132, guid: f372ab18ad2cc8848818da260800a7c1, type: 3}
-      propertyPath: groundDetectSize.x
-      value: 0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1060450866450924132, guid: f372ab18ad2cc8848818da260800a7c1, type: 3}
-      propertyPath: groundDetectSize.y
-      value: 0.01
-      objectReference: {fileID: 0}
     - target: {fileID: 2358722263303137472, guid: f372ab18ad2cc8848818da260800a7c1, type: 3}
       propertyPath: m_Name
       value: Player1
@@ -96649,14 +96613,6 @@ PrefabInstance:
     - target: {fileID: 2871791218540232346, guid: f372ab18ad2cc8848818da260800a7c1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4370393139105729725, guid: f372ab18ad2cc8848818da260800a7c1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6703704116990284150, guid: f372ab18ad2cc8848818da260800a7c1, type: 3}
-      propertyPath: yMin
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8201902442338208266, guid: f372ab18ad2cc8848818da260800a7c1, type: 3}
       propertyPath: itemToDisplay
