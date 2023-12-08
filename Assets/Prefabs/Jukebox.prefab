@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4681437765321861303}
   - component: {fileID: 1699791388321501716}
   - component: {fileID: 8897476785038445187}
+  - component: {fileID: 625543556897674511}
   m_Layer: 0
   m_Name: Jukebox
   m_TagString: Untagged
@@ -31,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1699791388321501716
 AudioSource:
@@ -44,10 +45,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -141,3 +142,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a63b16230efa11448b7f61c29276cf73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  settings: {fileID: 11400000, guid: 014ee1784e401d04bb614fad544737a6, type: 2}
+  intro: {fileID: 8300000, guid: 5e336ac9d9f46a1479b2a798160f2c00, type: 3}
+  mainMusic: {fileID: 8300000, guid: 1dd7b980b4bf9e647b3246fbf5378d15, type: 3}
+--- !u!81 &625543556897674511
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017947324076413355}
+  m_Enabled: 1

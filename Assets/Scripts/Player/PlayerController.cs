@@ -43,6 +43,8 @@ public class PlayerController : MonoBehaviour
         life = GetComponent<PlayerLife>();
 
         playerControls = new();
+        playerControls.General.Enable();
+        playerControls.General.PauseMenu.performed += PauseGame.Instance.ToggleMenu;
         if(gameObject.CompareTag("Player1"))
         {
             playerControls.Player1Controls.Enable();
@@ -59,8 +61,6 @@ public class PlayerController : MonoBehaviour
             playerControls.Player2Controls.UseItem.performed += useItem.UseItem;
             playerControls.Player2Controls.Respawn.performed += life.Die;
         }
-        playerControls.General.Enable();
-        playerControls.General.PauseMenu.performed += PauseGame.Instance.ToggleMenu;
     }
 
     private void FixedUpdate()

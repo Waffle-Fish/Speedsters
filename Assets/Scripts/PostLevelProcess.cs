@@ -33,6 +33,7 @@ public class PostLevelProcess : MonoBehaviour
     public IEnumerator StartProcess() {
         yield return new WaitForSecondsRealtime(initialDelay); // Can add a slight delay between player finishing and finish screen
         PauseGame.Instance.Pause();
+        JukeboxPlayer.Instance.StopMusic();
         TextMeshProUGUI PlayerTMP = PlayerTextGO.GetComponent<TextMeshProUGUI>();
         PlayerTMP.text = string.Format("Player {0}!",Time_UI.Instance.GetWinner());
         SetPodiumPictures();

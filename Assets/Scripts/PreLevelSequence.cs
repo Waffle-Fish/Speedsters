@@ -9,7 +9,7 @@ using UnityEngine.UIElements;
 public class PreLevelSequence : MonoBehaviour
 {
     public static PreLevelSequence Instance { get; private set; }
-    [SerializeField] int screenTimeLength = 0;
+    public int ScreenTimeLength = 0;
     TextMeshProUGUI text;
     UnityEngine.UI.Image backdrop;
 
@@ -23,7 +23,7 @@ public class PreLevelSequence : MonoBehaviour
     {
         text = GetComponentInChildren<TextMeshProUGUI>();
         backdrop = GetComponentInChildren<UnityEngine.UI.Image>();
-        if(screenTimeLength <= 0) {
+        if(ScreenTimeLength <= 0) {
             text.gameObject.SetActive(false);
             backdrop.enabled = false;
             return; 
@@ -38,7 +38,7 @@ public class PreLevelSequence : MonoBehaviour
 
     private IEnumerator CountdownScreen()
     {
-        for (int i = screenTimeLength; i > 0; i--)
+        for (int i = ScreenTimeLength; i > 0; i--)
         {
             UpdateText(i);
             UpdateBackdrop(i);
@@ -57,7 +57,7 @@ public class PreLevelSequence : MonoBehaviour
 
     private void UpdateBackdrop(int i)
     {
-        Color c = new(backdrop.color.r, backdrop.color.g, backdrop.color.b, i * backdrop.color.a / screenTimeLength);
+        Color c = new(backdrop.color.r, backdrop.color.g, backdrop.color.b, i * backdrop.color.a / ScreenTimeLength);
         backdrop.color = c;
     }
 }

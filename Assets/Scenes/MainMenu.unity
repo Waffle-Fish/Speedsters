@@ -933,7 +933,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1274198076}
   - component: {fileID: 1274198075}
-  - component: {fileID: 1274198074}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -941,14 +940,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1274198074
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274198073}
-  m_Enabled: 1
 --- !u!20 &1274198075
 Camera:
   m_ObjectHideFlags: 0
@@ -1858,6 +1849,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8897476785038445187, guid: 454f0d05f79b60a478f5764649b1e909, type: 3}
+      propertyPath: intro
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8897476785038445187, guid: 454f0d05f79b60a478f5764649b1e909, type: 3}
+      propertyPath: mainMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: f3106ce8bc12ac2489b891da302e830d, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

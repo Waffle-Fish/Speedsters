@@ -15,21 +15,18 @@ public class PauseGame : MonoBehaviour
     private float resumeDelayTime = 0f;
     float prevTimeScale = 0f;
 
-    private Controls playerControls;
-
     private void Awake()
     {
         if (Instance == null) { Instance = this; }
         else { Destroy(gameObject); }
-        playerControls = new();
-        playerControls.General.Enable();
-        playerControls.General.PauseMenu.performed += ToggleMenu; 
     }
+
     public void Pause()
     {
         prevTimeScale = Time.timeScale;
         Time.timeScale = 0;
         isGamePaused = true;
+        AudioListener.pause = true;
     }
 
     public void Resume()
@@ -37,11 +34,14 @@ public class PauseGame : MonoBehaviour
         StartCoroutine(ResumeGameDelay());
         Time.timeScale = prevTimeScale;
         isGamePaused = false;
+        AudioListener.pause = false;
     }
 
     public void ToggleMenu(InputAction.CallbackContext context)
     {
+        Debug.Log("escape is being pressed");
         if(!context.performed) { return; }
+        Debug.Log("escape is performed");
         if(isGamePaused) { 
             Resume();
         }

@@ -37,6 +37,7 @@ public class AudioSettingsController : MonoBehaviour
     {
         settings.MusicVolume = musicSlider.value;
         musicVolumeTMP.text = string.Format("{0:0}%", Mathf.Round(settings.MusicVolume * 100));
+        JukeboxPlayer.Instance.UpdateVolume();
     }
 
     public void UpdateSFXVolume()

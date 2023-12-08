@@ -1552,7 +1552,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8424319866554170204, guid: 489cd7c8c7041f245a82aa0819c0ac45, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.444445
+      value: 11.44266
       objectReference: {fileID: 0}
     - target: {fileID: 8424319866554170204, guid: 489cd7c8c7041f245a82aa0819c0ac45, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3141,18 +3141,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jukebox
       objectReference: {fileID: 0}
-    - target: {fileID: 1699791388321501716, guid: 454f0d05f79b60a478f5764649b1e909, type: 3}
-      propertyPath: m_Volume
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1699791388321501716, guid: 454f0d05f79b60a478f5764649b1e909, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1699791388321501716, guid: 454f0d05f79b60a478f5764649b1e909, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4681437765321861303, guid: 454f0d05f79b60a478f5764649b1e909, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -3200,10 +3188,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1017947324076413355, guid: 454f0d05f79b60a478f5764649b1e909, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 571322782}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 454f0d05f79b60a478f5764649b1e909, type: 3}
 --- !u!1001 &282446491
 PrefabInstance:
@@ -5933,19 +5918,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &571322778 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1017947324076413355, guid: 454f0d05f79b60a478f5764649b1e909, type: 3}
-  m_PrefabInstance: {fileID: 266417919}
-  m_PrefabAsset: {fileID: 0}
---- !u!81 &571322782
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 571322778}
-  m_Enabled: 1
 --- !u!1 &571719654
 GameObject:
   m_ObjectHideFlags: 0
@@ -27635,6 +27607,10 @@ PrefabInstance:
     - target: {fileID: 4298262760336123868, guid: 4531bd352c87e6544a0a6dfc5ce37a6d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
+      objectReference: {fileID: 8496824692888714764}
+    - target: {fileID: 4298262760336123868, guid: 4531bd352c87e6544a0a6dfc5ce37a6d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -29133,6 +29109,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: Resume
       objectReference: {fileID: 0}
+    - target: {fileID: 5096792058055655829, guid: 9723fd5732047314d9e95bbed2f9ea14, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5096792058055655829, guid: 9723fd5732047314d9e95bbed2f9ea14, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5096792058055655829, guid: 9723fd5732047314d9e95bbed2f9ea14, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5096792058055655829, guid: 9723fd5732047314d9e95bbed2f9ea14, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: AudioSettingsController, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 5184485225833303170, guid: 9723fd5732047314d9e95bbed2f9ea14, type: 3}
       propertyPath: m_Name
       value: SettingsLevelMenu
@@ -29270,6 +29262,10 @@ PrefabInstance:
     - target: {fileID: 790573704829447765, guid: 9183daea2a59fce45a741556182d5bd1, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1202893677426158983, guid: 9183daea2a59fce45a741556182d5bd1, type: 3}
+      propertyPath: ScreenTimeLength
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1202893677426158983, guid: 9183daea2a59fce45a741556182d5bd1, type: 3}
       propertyPath: screenTimeLength
