@@ -2841,6 +2841,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TEMP FLAG DESTROY LATER
       objectReference: {fileID: 0}
+    - target: {fileID: 1391064530962858293, guid: 3e7cc9cd9f6e90c4eb40513b685184a0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1744187346713307570, guid: 3e7cc9cd9f6e90c4eb40513b685184a0, type: 3}
       propertyPath: m_Size.x
       value: 1132.26
@@ -9294,6 +9298,10 @@ PrefabInstance:
     - target: {fileID: 1391064530962858293, guid: 3e7cc9cd9f6e90c4eb40513b685184a0, type: 3}
       propertyPath: m_Name
       value: TEMP FLAG DESTROY LATER
+      objectReference: {fileID: 0}
+    - target: {fileID: 1391064530962858293, guid: 3e7cc9cd9f6e90c4eb40513b685184a0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1744187346713307570, guid: 3e7cc9cd9f6e90c4eb40513b685184a0, type: 3}
       propertyPath: m_Size.x

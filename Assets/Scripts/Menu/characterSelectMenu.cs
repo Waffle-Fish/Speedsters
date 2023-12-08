@@ -5,8 +5,8 @@ public class CharacterSelectMenu : MonoBehaviour
 {
     public static CharacterSelectMenu Instance { get; private set; }
 
-    [Min(0)]
-    private int sceneIndex;
+    //[Min(0)]
+    public int sceneIndex {get; private set;}
 
     [SerializeField]
     bool isPlayer2;

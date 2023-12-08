@@ -8,15 +8,19 @@ public class playerCountSelect : MonoBehaviour
 
     [SerializeField]
     GameObject[] scenes;
+    int originalLevelIndex = 0;
 
     public void changeSelect(CharacterSelectMenu menu)
     {
+        originalLevelIndex = CharacterSelectMenu.Instance.sceneIndex;
+        CharacterSelectMenu.Instance.SetIndex(originalLevelIndex);
         if (dropdown.value== 1) 
         {
             scenes[0].SetActive(true);
             scenes[1].SetActive(true);
             scenes[2].SetActive(false);
             menu.setIsPlayer2(false);
+            CharacterSelectMenu.Instance.SetIndex(originalLevelIndex+2);
         }
         else if (dropdown.value == 2)
         {
