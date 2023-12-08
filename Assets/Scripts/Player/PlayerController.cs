@@ -133,9 +133,9 @@ public class PlayerController : MonoBehaviour
         rb.velocity = vect;
     }
 
-    void OnDrawGizmos()
-    {
-       Gizmos.color = Color.red;
-       Gizmos.DrawCube(boxOrigin, groundDetectSize);
-    }
+    // void OnDrawGizmos()
+    // {
+    //    Gizmos.color = Color.red;
+    //    Gizmos.DrawCube(boxOrigin, groundDetectSize);
+    // }
 }
