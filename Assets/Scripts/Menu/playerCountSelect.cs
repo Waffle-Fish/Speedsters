@@ -13,14 +13,20 @@ public class playerCountSelect : MonoBehaviour
     public void changeSelect(CharacterSelectMenu menu)
     {
         originalLevelIndex = CharacterSelectMenu.Instance.sceneIndex;
-        CharacterSelectMenu.Instance.SetIndex(originalLevelIndex);
         if (dropdown.value== 1) 
         {
             scenes[0].SetActive(true);
             scenes[1].SetActive(true);
             scenes[2].SetActive(false);
             menu.setIsPlayer2(false);
-            CharacterSelectMenu.Instance.SetIndex(originalLevelIndex+2);
+            if(originalLevelIndex == 1)
+            {
+                CharacterSelectMenu.Instance.SetIndex(3);
+            }
+            if(originalLevelIndex == 2)
+            {
+                CharacterSelectMenu.Instance.SetIndex(4);
+            }
         }
         else if (dropdown.value == 2)
         {
@@ -28,6 +34,15 @@ public class playerCountSelect : MonoBehaviour
             scenes[1].SetActive(false);
             scenes[2].SetActive(true);
             menu.setIsPlayer2(true);
+            CharacterSelectMenu.Instance.SetIndex(originalLevelIndex);
+            if(originalLevelIndex == 3)
+            {
+                CharacterSelectMenu.Instance.SetIndex(1);
+            }
+            if(originalLevelIndex == 4)
+            {
+                CharacterSelectMenu.Instance.SetIndex(2);
+            }
         }
         else if (dropdown.value == 0)
         {
