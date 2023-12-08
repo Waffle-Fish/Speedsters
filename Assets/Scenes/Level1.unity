@@ -4187,6 +4187,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FinishFlag
       objectReference: {fileID: 0}
+    - target: {fileID: 1684456898267003392, guid: 3e7cc9cd9f6e90c4eb40513b685184a0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.07
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20026,6 +20030,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: FinishFlag
       objectReference: {fileID: 0}
+    - target: {fileID: 1684456898267003392, guid: 3e7cc9cd9f6e90c4eb40513b685184a0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6473348486326663880, guid: 3e7cc9cd9f6e90c4eb40513b685184a0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e33d020420bf81649a2d492966c2ee83, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
