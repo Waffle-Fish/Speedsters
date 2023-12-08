@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38b1782b9d9b8dd40a255b45243cf7e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  screenTimeLength: 0
+  screenTimeLength: 3
 --- !u!1 &829752498741644874
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,8 +196,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: This is the prelevel countdown screen
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a7cbf84286cf9fc418634d2850723739, type: 2}
+  m_sharedMaterial: {fileID: 9010700358659181902, guid: a7cbf84286cf9fc418634d2850723739, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
