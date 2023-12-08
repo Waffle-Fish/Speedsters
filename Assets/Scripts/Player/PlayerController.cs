@@ -82,7 +82,7 @@ public class PlayerController : MonoBehaviour
             detectTimer--;
             return;
         } 
-        detectTimer = 3;
+        detectTimer = 2;
         boxOrigin = new(transform.position.x, transform.position.y - characterCollider.size.y / 2f);
         Collider2D groundDetect = Physics2D.OverlapBox(boxOrigin, groundDetectSize, 0f, GroundLayer);
         if (groundDetect && groundDetect.CompareTag("Ground")) { 
