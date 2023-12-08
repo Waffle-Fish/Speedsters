@@ -99,7 +99,7 @@ public abstract class ItemCore : MonoBehaviour
         {
             itemSpriteRenderer.enabled = false;
             GetComponent<BoxCollider2D>().enabled = false;
-            Debug.Log("Tag: " + this.tag);
+            //Debug.Log("Tag: " + this.tag);
             if(this.CompareTag("RandomBox"))
             {
                 GetRandomEffect(other);

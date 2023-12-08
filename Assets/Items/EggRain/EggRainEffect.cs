@@ -29,9 +29,15 @@ public class EggRainEffect : ItemCore
     private float cloudHeight = 0f;
     [SerializeField][Min(0.01f)][Tooltip("How long it takes for an egg from cloud to player")]
     private float eggDropDuration = 0f;
+    [SerializeField][Range(0.01f,1f)][Tooltip("How much its speed is decreased. The closer to zero, the slower they go")]
+    private float slowMultiplier = 0f;
+    [SerializeField][Range(0f, 10f)][Tooltip("How long the player is slowed for from that egg")]
+    private float slowDuration = 0f;
     private List<GameObject> eggList = new();
     private int eggCounter = 0;
+    private int numEggsHitPlayer = 0;
 
+    private float enemyOriginalMoveSpeed = 5f;
     private void Start()
     {
         SpawnEntities();
@@ -55,10 +61,11 @@ public class EggRainEffect : ItemCore
         ResetTimer();
         StartTimer();
         SpawnCloud();
+        GetComponent<Animator>().enabled = false;
+        enemyOriginalMoveSpeed = enemyMovement.moveSpeed;
         while (timer <= effectDuration)
         {
             cloud.GetComponentInParent<Transform>().position = new Vector2(enemy.transform.position.x, enemy.transform.position.y + cloudHeight);
-            UnityEngine.Debug.Log("Cloud parent pos: " + cloud.GetComponentInParent<Transform>());
             if (timer > (eggCounter + 1) * effectDuration / totalEggSpawn)
             {
                 eggList[eggCounter].SetActive(true);
@@ -92,6 +99,7 @@ public class EggRainEffect : ItemCore
             }
             yield return null;
         }
+        //yield return new WaitForSeconds(0.52f); // Splat animation duration
         egg.SetActive(false);
     }
 
@@ -104,18 +112,38 @@ public class EggRainEffect : ItemCore
 
     private void ProcessHit()
     {
-        UnityEngine.Debug.Log("Egg " + eggCounter + " has hit player " + enemy.tag);
-        // Slow player
+        //UnityEngine.Debug.Log("Egg " + eggCounter + " has hit player " + enemy.tag);
+        numEggsHitPlayer++;
+        StartCoroutine(SlowPlayer());
 
         // Create egg splatters
     }
 
+    private IEnumerator SlowPlayer()
+    {
+        float speedStole = enemyMovement.moveSpeed * slowMultiplier;
+        enemyMovement.moveSpeed -= speedStole;
+        yield return new WaitForSeconds(slowDuration);
+        enemyMovement.moveSpeed += speedStole;
+    }
+
+    private IEnumerator RestoreSpeed()
+    {
+        float speedRestore = (enemyOriginalMoveSpeed - enemyMovement.moveSpeed) / numEggsHitPlayer;
+        for(int i = 0; i < numEggsHitPlayer; i++)
+        {
+            enemyMovement.moveSpeed += speedRestore;
+            yield return new WaitForSeconds(slowDuration);
+        }
+        enemyMovement.moveSpeed = enemyOriginalMoveSpeed;
+    }
     private void ProcessEnd()
     {
         StopTimer();
         ResetTimer();
         effectIsActive = false;
         cloud.SetActive(false);
+        //StartCoroutine(RestoreSpeed());
     }
 
     private void OnDestroy()
