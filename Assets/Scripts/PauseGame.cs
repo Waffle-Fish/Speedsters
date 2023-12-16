@@ -14,11 +14,15 @@ public class PauseGame : MonoBehaviour
     [Tooltip("Adds more time to the game being paused between exiting the pause menu and resuming play of the game")]
     private float resumeDelayTime = 0f;
     float prevTimeScale = 0f;
-
+    private Controls playerControls;
+    
     private void Awake()
     {
         if (Instance == null) { Instance = this; }
         else { Destroy(gameObject); }
+        playerControls = new();
+        playerControls.General.Enable();
+        playerControls.General.PauseMenu.performed += PauseGame.Instance.ToggleMenu;
     }
 
     public void Pause()

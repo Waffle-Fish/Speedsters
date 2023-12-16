@@ -67193,7 +67193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1202893677426158983, guid: 9183daea2a59fce45a741556182d5bd1, type: 3}
       propertyPath: ScreenTimeLength
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1202893677426158983, guid: 9183daea2a59fce45a741556182d5bd1, type: 3}
       propertyPath: screenTimeLength

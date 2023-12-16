@@ -42,9 +42,8 @@ public class PlayerController : MonoBehaviour
         useItem = GetComponent<PlayerUseItem>();
         life = GetComponent<PlayerLife>();
 
-        playerControls = new();
-        playerControls.General.Enable();
-        playerControls.General.PauseMenu.performed += PauseGame.Instance.ToggleMenu;
+        playerControls ??= new();
+
         if(gameObject.CompareTag("Player1"))
         {
             playerControls.Player1Controls.Enable();
@@ -129,7 +128,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void setVel(Vector2 vect)
+    public void SetVel(Vector2 vect)
     {
         rb.velocity = vect;
     }
